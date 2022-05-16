@@ -28,7 +28,7 @@ code
 
 [Build relative links by referencing links in your current repository. This is linked to the current file.](./helpful_tips.readme.md)
 
-![Display an image by prefacing the line with an exclamation mark, putting alt text in brackets [] and link to image in parentheses() after](https://myoctocat.com/assets/images/base-octocat.svg)
+![Display an image by prefacing the line with an exclamation mark, putting alt text in brackets [] and link to image in parentheses() after](http://dwd.work/logo.svg)
 
 You can make an unordered list by preceding one or more lines of text with - or *.
 - George Washington
