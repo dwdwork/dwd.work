@@ -31,9 +31,9 @@ $header_class = $show_title ? 'site-title' : 'screen-reader-text';
 </script>
 
 </head>
-<div id="dwd">
 
 <body <?php body_class(); ?>>
+<div id="dwd">
 
 <header class="masthead">
   <div class="overlay"></div>
@@ -42,7 +42,7 @@ $header_class = $show_title ? 'site-title' : 'screen-reader-text';
             <div class="col-lg-6 col-md-10 mx-auto dwd-header">
                 <div class="site-heading">
                   <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo $blog_info; ?></a></h1>
-                  <span class="subheading"><?php echo $description;?></span>
+                  <span class="subheading"><?php // echo $description;?></span>
                 </div>
             </div>
             <div class="col-lg-6 col-md-10 mx-auto">
@@ -54,13 +54,17 @@ $header_class = $show_title ? 'site-title' : 'screen-reader-text';
 
                   <div class="navbar-collapse">
                     <ul class="navbar-nav ml-auto">
-                        <?php wp_nav_menu(array(
-                        'menu' => 'main-nav',
-                        'items_wrap'=>'%3$s',
-                        'container' => false,
-                        'list_item_class' => "nav-item",
-                        'link_class' => "nav-link",
-                        )); ?>
+                      <li><a href="mailto: me.dwdwork@gmail.com">Email Me</a></li>
+                      <li><a href="/wp-content/uploads/2022/04/DanWilder_Resume.pdf" target="_blank">Resume</a></li>
+                        <?php 
+                        // wp_nav_menu(array(
+                        //   'menu' => 'main-nav',
+                        //   'items_wrap'=>'%3$s',
+                        //   'container' => false,
+                        //   'list_item_class' => "nav-item",
+                        //   'link_class' => "nav-link",
+                        // )); 
+                        ?>
                     </ul>
 
                   </div>
