@@ -1,0 +1,32 @@
+/*--------------------------------------------------------------
+# Baskerville vont
+# - https://fonts.adobe.com/fonts/baskerville-pt
+--------------------------------------------------------------*/
+
+.baskerville {
+    font-family: baskerville-display-pt, serif;
+    font-weight: 400;
+    font-style: normal;
+
+    &-italic {
+        font-style: italic;
+    }
+
+    &-bold {
+        font-weight: 700;
+    }
+
+    &-bold-italic {
+        font-style: italic;
+        font-weight: 700;
+    }
+
+    &-poster {
+        font-family: baskerville-poster-pt, serif;
+    }
+
+    &-poster-italic {
+        font-family: baskerville-poster-pt, serif;
+        font-style: italic;
+    }
+}
