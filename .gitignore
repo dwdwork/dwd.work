@@ -34,4 +34,4 @@ wp-config.php
 /.htaccess
 
 # Node
-# node_modules/
+node_modules/

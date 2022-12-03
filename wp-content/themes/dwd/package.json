@@ -25,6 +25,7 @@
     "gulp-svgmin": "^4.1.0",
     "gulp-svgstore": "^9.0.0",
     "path": "^0.12.7",
+    "sass": "^1.56.1",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   }
