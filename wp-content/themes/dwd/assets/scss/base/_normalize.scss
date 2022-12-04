@@ -9,6 +9,7 @@ html {
 body {
     @extend .baskerville;
     color: $gray-type;
+    background-color: $gray-light;
 }
 
 ::selection {

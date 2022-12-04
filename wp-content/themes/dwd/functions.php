@@ -13,13 +13,7 @@ function dwd_setup() {
 	));
 	// This theme uses wp_nav_menu() in these locations.
 	register_nav_menus(array(
-		'first_level' => esc_html__('First Level Navigation', 'dwd'),
 		'primary_menu' => esc_html__('Primary Menu', 'dwd'),
-		'converge_navigation_2021' => esc_html__('Converge 2021', 'dwd'),
-		'footer_navigation' => esc_html__('Footer Links', 'dwd'),
-		'footer_col_2' => esc_html__('Footer Links Column 2', 'dwd'),
-		'footer_col_3' => esc_html__('Footer Links Column 3', 'dwd'),
-		'footer_col_4' => esc_html__('Footer Links Column 4', 'dwd'),
 	));
 
 }

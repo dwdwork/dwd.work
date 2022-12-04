@@ -19,5 +19,17 @@
             max-width: 800px;
             margin: 0 auto;
         }
+        
+        p {
+            margin-bottom: 1.5em;
+        }
+        
+        a {
+            transition: opacity .2s ease;
+
+            &:hover {
+                opacity: .45;
+            }
+        }
     }
 }
