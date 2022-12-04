@@ -1,12 +1,29 @@
 <?php
 /**
- * dwd post template
+ * The template for displaying all single pages
  */
 
-get_header(); ?>
+get_header();
 
-    <?php if ( have_posts() ) : while ( have_posts() ): the_post(); ?>
-	
-    <?php endwhile; endif; ?>
+/* Page Content */
+if ( have_posts() ) : while ( have_posts() ): the_post(); ?>
 
-<?php get_footer(); ?>
+    <div id="page-<?php the_ID(); ?>" class="page-content">
+
+        <?php if(!is_front_page()): ?>
+            <div class="page-title">
+                <h1><?php the_title(); ?></h1>
+            </div>
+        <?php endif;  ?>
+
+        <div class="the-content">
+            <?php the_content(); ?>
+        </div>
+          
+    </div>
+
+<?php endwhile; endif;
+
+get_footer();
+
+?>

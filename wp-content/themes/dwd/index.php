@@ -1,20 +1,29 @@
 <?php
 /**
- * Basic index
+ * The template for displaying all single pages
  */
 
-get_header(); ?>
+get_header();
 
-    <?php
-    if ( have_posts() ) : while ( have_posts() ): the_post(); ?>
+/* Page Content */
+if ( have_posts() ) : while ( have_posts() ): the_post(); ?>
 
-    <div id="post-<?php the_ID();?>" class="post_block">
-        <div class="page-title"><h2><?php the_title(); ?></h2></div>
-        <div class="post-content"><?php the_content(); ?></div>
+    <div id="page-<?php the_ID(); ?>" class="page-content">
+
+        <?php if(!is_front_page()): ?>
+            <div class="page-title">
+                <h1><?php the_title(); ?></h1>
+            </div>
+        <?php endif;  ?>
+
+        <div class="the-content">
+            <?php the_content(); ?>
+        </div>
+          
     </div>
 
-    <?php endwhile;
-    endif;
-    ?>
+<?php endwhile; endif;
 
-<?php get_footer(); ?>
+get_footer();
+
+?>
