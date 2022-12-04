@@ -3,10 +3,11 @@
 --------------------------------------------------------------*/
 
 body {
+    position: relative;
     margin: 0;
     width: 100vw;
     height: 100vh;
-    position: relative;
+    overflow-x: hidden;
     z-index: 0;
 
     .overlay {

@@ -18,17 +18,32 @@ export default class HeaderFunctions {
 
     toggleMobile() {
         const hamburger = $('.hamburger');
-        const menu = $('nav.site-nav');
+        const menu = $('nav.site-nav').parent();
         const overlay = $('.overlay');
         const close = $('.hamburger-close');
+        const header = $('#site-header');
+        const body = $('body');
+
+        menu.find('.mobile-toggle').height(header.height());
 
         hamburger.on('click', function() {
-            menu.removeClass('hide');
-            overlay.removeClass('hide');
+            menu.toggleClass('mobile-nav');
+            menu.siblings().toggleClass('under');
+            body.toggleClass('mobile-menu-visible');
+            menu.find('.site-nav').toggleClass('hide');
+            overlay.toggleClass('hide');
+        });
+
+        overlay.on('click', function() {
+            menu.toggleClass('mobile-nav');
+            menu.siblings().toggleClass('under');
+            body.toggleClass('mobile-menu-visible');
+            menu.find('.site-nav').toggleClass('hide');
+            overlay.toggleClass('hide');
         });
 
         close.on('click', function() {
-            menu.addClass('hide');
+            menu.toggleClass('mobile-nav');
             overlay.addClass('hide');
         });
     }
