@@ -43,7 +43,7 @@ const paths = {
         file: `scripts.js`,
         src: `./assets/js/scripts.js`,
         dest: `./build/js/`,
-        watch: `./js/**/*.js`,
+        watch: `./assets/js/**/*.js`,
     },
     styles: {
         src: `./assets/scss/**/*.scss`,
