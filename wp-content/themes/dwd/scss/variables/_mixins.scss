@@ -1,0 +1,31 @@
+/*--------------------------------------------------------------
+# Define mixins
+--------------------------------------------------------------*/
+
+// Used to do math in Sass, like `math.div(6, 2)` which will return `3`
+@use "sass:math";
+
+// remove  default styles for lists
+@mixin list-unstyle {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+// Responsive brekpoints
+@mixin breakpoint($breakpoint) {
+	@if map-has-key($breakpoints, $breakpoint) {
+		@media #{inspect(map-get($breakpoints, $breakpoint))} {
+			@content;
+		}
+	}
+
+	@else {
+		@media #{"( min-width: #{$breakpoint})"} {
+            @content;
+        }
+
+        @warn "Custom Breakpoint Set: `#{$breakpoint}`. "
+        (+"Please consider using an available breakpoint: #{map-keys($breakpoints)}.");
+    }
+}

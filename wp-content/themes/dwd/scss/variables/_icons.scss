@@ -1,0 +1,56 @@
+/*--------------------------------------------------------------
+# Define icons
+--------------------------------------------------------------*/
+
+$icon--size-xs: var(--icon-size-xs);
+$icon--size-sm: var(--icon-size-sm);
+$icon--size-md: var(--icon-size-md);
+$icon--size-lg: var(--icon-size-lg);
+$icon--size-xl: var(--icon-size-xl);
+
+$icon-sizes: ('xs': $icon--size-xs,
+    'sm': $icon--size-sm,
+    'md': $icon--size-md,
+    'lg': $icon--size-lg,
+    'xl': $icon--size-xl,
+);
+
+$icon-default-color: var(--icon-default-color);
+
+$icons:(
+    'dwd-arrow',
+    'dwd-arrow-rounded'
+    'dwd-check-circle-gray',
+    'dwd-check-circle',
+    'dwd-check',
+    'dwd-chevron-bold',
+    'dwd-chevron',
+    'dwd-clock',
+    'dwd-close',
+    'dwd-considerations',
+    'dwd-facebook',
+    'dwd-globe',
+    'dwd-hamburger',
+    'dwd-instagram',
+    'dwd-linkedin',
+    'dwd-logo-combo-white',
+    'dwd-logo-combo',
+    'dwd-logo-text-white',
+    'dwd-logo-text',
+    'dwd-mattress',
+    'dwd-menu-close',
+    'dwd-menu-hamburger',
+    'dwd-methodology',
+    'dwd-minus',
+    'dwd-notes',
+    'dwd-plus-rounded',
+    'dwd-plus',
+    'dwd-price',
+    'dwd-search',
+    'dwd-twitter',
+    'dwd-thumbsup',
+    'dwd-thumbsup-white',
+    'dwd-thumbsdown',
+    'dwd-thumbsdown-white',
+    'dwd-youtube'
+)
