@@ -1,0 +1,23 @@
+/*--------------------------------------------------------------
+# Baskerville vont
+# - https://fonts.adobe.com/fonts/century-gothic
+--------------------------------------------------------------*/
+
+.century-gothic {
+    font-family: century-gothic, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    &-italic {
+        font-style: italic;
+    }
+
+    &-bold {
+        font-weight: 700;
+    }
+
+    &-bold-italic {
+        font-style: italic;
+        font-weight: 700;
+    }
+}

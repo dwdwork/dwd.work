@@ -3,13 +3,7 @@
 --------------------------------------------------------------*/
 
 body {
-    background-color: white;
-    font-family: 'Helvetica', sans-serif;
-    margin: 0;
-    height: 100vh;
-    width: 100vw;
-    color: $darkness;
-    font-size: 16px;
+    @extend .baskerville;
 }
 
 ::selection {
