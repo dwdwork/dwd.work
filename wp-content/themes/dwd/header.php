@@ -54,17 +54,13 @@ $header_class = $show_title ? 'site-title' : 'screen-reader-text';
 
           <div class="navbar-collapse">
             <ul class="navbar-nav ml-auto">
-                <li><a href="mailto: me.dwdwork@gmail.com">Email Me</a></li>
-                <li><a href="/wp-content/uploads/2022/04/DanWilder_Resume.pdf" target="_blank">Resume</a></li>
-                <?php 
-                // wp_nav_menu(array(
-                //   'menu' => 'main-nav',
-                //   'items_wrap'=>'%3$s',
-                //   'container' => false,
-                //   'list_item_class' => "nav-item",
-                //   'link_class' => "nav-link",
-                // )); 
-                ?>
+                <?php wp_nav_menu(array(
+                  'menu' => 'main-nav',
+                  'items_wrap'=>'%3$s',
+                  'container' => false,
+                  'list_item_class' => "nav-item",
+                  'link_class' => "nav-link",
+                )); ?>
             </ul>
           </div>
         </nav>
