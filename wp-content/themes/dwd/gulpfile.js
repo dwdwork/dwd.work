@@ -40,13 +40,13 @@ const del = require('del');
 // paths object
 const paths = {
     scripts: {
-        file: `dwd.js`,
-        src: `./js/dwd.js`,
+        file: `scripts.js`,
+        src: `./assets/js/scripts.js`,
         dest: `./build/js/`,
         watch: `./js/**/*.js`,
     },
     styles: {
-        src: `./scss/**/*.scss`,
+        src: `./assets/scss/**/*.scss`,
         dest: `./build/css`,
     },
     adminStyles: {
