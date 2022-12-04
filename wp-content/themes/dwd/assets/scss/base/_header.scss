@@ -1,3 +1,70 @@
 /*--------------------------------------------------------------
 # Define main page header
 --------------------------------------------------------------*/
+
+header#site-header {
+
+    .container {
+        max-width: 900px;
+    }
+
+    .site-heading {
+        display: flex;
+        width: auto;
+        height: 100%;
+
+        .site-title {
+            display: flex;
+            
+            a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+
+                img {
+                    border-radius: 50px;
+                }
+            }
+        }
+    }
+
+    .site-nav {
+
+        ul, ul li {
+            display: flex;
+            list-style-type: none;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            a {
+                @extend .century-gothic-bold;
+                color: $gray;
+                padding: 12px;
+                text-decoration: none;
+                position: relative;
+                transition: all .4s ease;
+
+                &:after {
+                    content: '';
+                    display: flex;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    height: 0;
+                    background-color: $secondary;
+                }
+
+                &:hover {
+                    
+                    &:after {
+                        bottom: 4px;
+                        height: 4px;
+                    }
+                }
+            }
+        }
+    }
+}

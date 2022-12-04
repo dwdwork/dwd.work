@@ -35,21 +35,22 @@ $header_class = $show_title ? 'site-title' : 'screen-reader-text';
 
 <body <?php body_class(); ?>>
 
-<header>
+<header id="site-header" class="header">
   <div class="overlay"></div>
+
   <div class="container">
     <div class="row">
       <div class="col-lg-6 col-md-10 mx-auto">
         <div class="site-heading">
           <span class="site-title">
-            <a href="/" rel="home" class="logo">d</a>
+            <a href="/" rel="home" class="logo"><img src="/wp-content/themes/dwd/assets/images/logo.jpg" width="50" height="50"/></a>
           </span>
           <span class="subheading"><?php // echo $description;?></span>
         </div>
       </div>
 
       <div class="col-lg-6 col-md-10 mx-auto">
-        <nav class="header-nav">
+        <nav class="site-nav">
 
           <div class="navbar-collapse">
             <ul class="navbar-nav ml-auto">

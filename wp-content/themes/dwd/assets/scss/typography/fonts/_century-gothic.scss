@@ -9,15 +9,20 @@
     font-style: normal;
 
     &-italic {
+        font-family: century-gothic, sans-serif;
+        font-weight: 400;
         font-style: italic;
     }
 
     &-bold {
+        font-family: century-gothic, sans-serif;
         font-weight: 700;
+        font-style: normal;
     }
 
     &-bold-italic {
-        font-style: italic;
+        font-family: century-gothic, sans-serif;
         font-weight: 700;
+        font-style: italic;
     }
 }
