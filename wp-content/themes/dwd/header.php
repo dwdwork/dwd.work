@@ -9,6 +9,7 @@ $show_title   = ( true === get_theme_mod( 'display_title_and_tagline', true ) );
 $header_class = $show_title ? 'site-title' : 'screen-reader-text';
 
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,51 +34,44 @@ $header_class = $show_title ? 'site-title' : 'screen-reader-text';
 </head>
 
 <body <?php body_class(); ?>>
-<div id="dwd">
 
-<header class="masthead">
+<header>
   <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-10 mx-auto dwd-header">
-                <div class="site-heading">
-                  <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo $blog_info; ?></a></h1>
-                  <span class="subheading"><?php // echo $description;?></span>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-10 mx-auto">
-              <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-                <div class="container-fluid">
-                  <div class="navbar-header page-scroll">
-                          <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="navbar-brand"><?php bloginfo( 'name' ); ?></a>
-                  </div>
-
-                  <div class="navbar-collapse">
-                    <ul class="navbar-nav ml-auto">
-                      <li><a href="mailto: me.dwdwork@gmail.com">Email Me</a></li>
-                      <li><a href="/wp-content/uploads/2022/04/DanWilder_Resume.pdf" target="_blank">Resume</a></li>
-                        <?php 
-                        // wp_nav_menu(array(
-                        //   'menu' => 'main-nav',
-                        //   'items_wrap'=>'%3$s',
-                        //   'container' => false,
-                        //   'list_item_class' => "nav-item",
-                        //   'link_class' => "nav-link",
-                        // )); 
-                        ?>
-                    </ul>
-
-                  </div>
-                </div>
-              </nav>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-10 mx-auto">
+        <div class="site-heading">
+          <span class="site-title">
+            <a href="/" rel="home" class="logo">d</a>
+          </span>
+          <span class="subheading"><?php // echo $description;?></span>
         </div>
+      </div>
+
+      <div class="col-lg-6 col-md-10 mx-auto">
+        <nav class="header-nav">
+
+          <div class="navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li><a href="mailto: me.dwdwork@gmail.com">Email Me</a></li>
+                <li><a href="/wp-content/uploads/2022/04/DanWilder_Resume.pdf" target="_blank">Resume</a></li>
+                <?php 
+                // wp_nav_menu(array(
+                //   'menu' => 'main-nav',
+                //   'items_wrap'=>'%3$s',
+                //   'container' => false,
+                //   'list_item_class' => "nav-item",
+                //   'link_class' => "nav-link",
+                // )); 
+                ?>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
     </div>
+  </div>
 
 </header>
 
 <?php dynamic_header(); ?>
-
-<div class="container">
-    <div class="row">
-
