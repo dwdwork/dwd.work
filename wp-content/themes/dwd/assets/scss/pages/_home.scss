@@ -16,6 +16,9 @@
     }
 
     .the-content {
-        margin-top: 5rem;
+        margin-top: 2rem;
+        @include breakpoint(md) {
+            margin-top: 5rem;
+        }
     }
 }

@@ -34,13 +34,13 @@ $header_class = $show_title ? 'site-title' : 'screen-reader-text';
 </head>
 
 <body <?php body_class(); ?>>
+<div class="overlay hide"></div>
 
 <header id="site-header" class="header">
-  <div class="overlay"></div>
 
   <div class="container">
     <div class="row">
-      <div class="col-lg-6 col-md-10 mx-auto">
+      <div class="col col-6">
         <div class="site-heading">
           <span class="site-title">
             <a href="/" rel="home" class="logo"><img src="/wp-content/themes/dwd/assets/images/logo.jpg" width="50" height="50"/></a>
@@ -49,20 +49,29 @@ $header_class = $show_title ? 'site-title' : 'screen-reader-text';
         </div>
       </div>
 
-      <div class="col-lg-6 col-md-10 mx-auto">
-        <nav class="site-nav">
+      <div class="col col-6 mobile-nav">
 
-          <div class="navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-                <?php wp_nav_menu(array(
-                  'menu' => 'main-nav',
-                  'items_wrap'=>'%3$s',
-                  'container' => false,
-                  'list_item_class' => "nav-item",
-                  'link_class' => "nav-link",
-                )); ?>
+        <div class="mobile-toggle">
+          <button class="hamburger">
+            <ul class="hamburger-menu">
+              <li class="hamburger-line"></li>
+              <li class="hamburger-line"></li>
+              <li class="hamburger-line"></li>
             </ul>
-          </div>
+          </button>
+        </div>
+
+        <nav class="site-nav hide">
+          <div class="hamburger-close century-gothic-bold"><a class="close-btn">x</a></div>
+          <ul class="navbar-nav">
+              <?php wp_nav_menu(array(
+                'menu' => 'main-nav',
+                'items_wrap'=>'%3$s',
+                'container' => false,
+                'list_item_class' => "nav-item",
+                'link_class' => "nav-link",
+              )); ?>
+          </ul>
         </nav>
       </div>
 

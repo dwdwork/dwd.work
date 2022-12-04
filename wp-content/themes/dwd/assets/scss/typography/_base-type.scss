@@ -18,7 +18,10 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 5rem;
+    font-size: 3rem;
+    @include breakpoint(md) {
+        font-size: 5rem;
+    }
 }
 
 p {

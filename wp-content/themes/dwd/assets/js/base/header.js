@@ -16,4 +16,21 @@ export default class HeaderFunctions {
         down:   40
     };
 
+    toggleMobile() {
+        const hamburger = $('.hamburger');
+        const menu = $('nav.site-nav');
+        const overlay = $('.overlay');
+        const close = $('.hamburger-close');
+
+        hamburger.on('click', function() {
+            menu.removeClass('hide');
+            overlay.removeClass('hide');
+        });
+
+        close.on('click', function() {
+            menu.addClass('hide');
+            overlay.addClass('hide');
+        });
+    }
+
 }

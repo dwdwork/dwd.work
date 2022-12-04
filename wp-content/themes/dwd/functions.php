@@ -14,6 +14,7 @@ function dwd_setup() {
 	// This theme uses wp_nav_menu() in these locations.
 	register_nav_menus(array(
 		'primary_menu' => esc_html__('Primary Menu', 'dwd'),
+        'footer_menu' => esc_html__('Footer Menu', 'dwd'),
 	));
 
 }

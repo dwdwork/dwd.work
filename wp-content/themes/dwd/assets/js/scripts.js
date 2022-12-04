@@ -37,7 +37,7 @@ globalFunctions.slickSlider();
 // blockFunctions.exampleFunction();
 
 /** Header Functions */
-// headerFunctions.toggleMenuItems();
+headerFunctions.toggleMobile();
 // headerFunctions.toggleMobileMenu(breakpoints);
 
 /** Shortcode Functions */
