@@ -41,9 +41,9 @@ const del = require('del');
 const paths = {
     scripts: {
         file: `dwd.js`,
-        src: `./js/theme.js`,
+        src: `./js/dwd.js`,
         dest: `./build/js/`,
-        watch: `./assets/js/**/*.js`,
+        watch: `./js/**/*.js`,
     },
     styles: {
         src: `./scss/**/*.scss`,
@@ -182,7 +182,7 @@ exports.clean = cleanAll;
 
 // export command: gulp build
 exports.build = series( 
-    cleanAll,
+    // cleanAll,
     buildStyles, 
     adminBuildStyles, 
     buildScripts, 

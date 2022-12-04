@@ -50,7 +50,7 @@ function dwd_scripts() {
 
     // Enqueue js.
     wp_enqueue_script('dwd-bootstrap', get_template_directory_uri() . '/js/bootstrap.bundle.min.js');
-    wp_enqueue_script('dwd-js', get_template_directory_uri() . '/js/dwd.js');
+    wp_enqueue_script('dwd-scripts', get_template_directory_uri() . '/js/dwd.js', array( 'jquery' ), null, true);
 }
 add_action('wp_enqueue_scripts', 'dwd_scripts');
 
