@@ -1,0 +1,63 @@
+/*--------------------------------------------------------------
+# Define main structure
+--------------------------------------------------------------*/
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    z-index: 0;
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.45);
+
+        &.hide {
+            display: none;
+        }
+    }
+}
+
+.page-content {
+    padding: 1rem;
+    @include breakpoint(md) {
+        padding: .5rem;
+    }
+    @include breakpoint(lg) {
+        padding: 0;
+    }
+
+    .page-title {
+
+        h1 {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    }
+
+    .the-content {
+        margin: 2rem auto;
+
+        p, blockquote {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        p {
+            margin-bottom: 1.5em;
+        }
+        
+        a {
+            transition: opacity .2s ease;
+
+            &:hover {
+                opacity: .45;
+            }
+        }
+    }
+}

@@ -1,0 +1,166 @@
+/*--------------------------------------------------------------
+# Define main page header
+--------------------------------------------------------------*/
+
+header#site-header {
+    margin-bottom: 1rem;
+    padding: 0 .5rem;
+    @include breakpoint(md) {
+        padding: 1rem;
+    }
+
+    .container {
+        max-width: 800px;
+    }
+
+    .site-heading {
+        display: flex;
+        width: auto;
+        height: 100%;
+
+        .site-title {
+            display: flex;
+            padding: .5rem;
+            @include breakpoint(md) {
+                padding: 0;
+            }
+            
+            a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+
+                img {
+                    border-radius: 50px;
+                }
+            }
+        }
+    }
+
+    .mobile-nav {
+        position: relative;
+        z-index: 0;
+
+        .site-nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: -100vh;
+            z-index: 1;
+            background: $gray-light;
+            @include breakpoint(md) {
+                position: relative;
+                padding: 0;
+                margin: 0;
+            }
+        }
+    }
+
+    .mobile-toggle {
+        display: flex;
+        justify-content: flex-end;
+        @include breakpoint(md) {
+            display: none;
+        }
+
+        .hamburger {
+            appearance: none;
+            background: none;
+            border: none;
+            padding: 0 1rem;
+            cursor: pointer;
+
+            &-menu {
+                @include list-unstyle;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 20px;
+                height: 50px;
+            }
+
+            &-line {
+                display: block;
+                width: 100%;
+                height: 3px;
+                border-radius: 1px;
+                margin: 2px auto;
+                background-color: $secondary;
+            }
+        }
+    }
+
+    .site-nav {
+
+        .hamburger-close {
+            display: flex;
+            justify-content: flex-end;
+            @include breakpoint(md) {
+                display: none;
+            }
+
+            a {
+                cursor: pointer;
+                padding: 1rem;
+                color: $secondary;
+            }
+        }
+
+        &.hide {
+            display: none;
+            @include breakpoint(md) {
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+
+        ul, ul li {
+            display: flex;
+            list-style-type: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            margin-top: 0;
+            @include breakpoint(md) {
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                padding: 0;
+                margin: 0;
+            }
+
+            a {
+                @extend .century-gothic-bold;
+                color: $gray;
+                padding: 12px;
+                text-decoration: none;
+                position: relative;
+                transition: all .4s ease;
+
+                &:after {
+                    content: '';
+                    display: flex;
+                    position: absolute;
+                    right: 6px;
+                    bottom: 0;
+                    left: 6px;
+                    height: 4px;
+                    opacity: 0;
+                    background-color: $secondary;
+                    transition: all .2s ease;
+                }
+
+                &:hover {
+                    
+                    &:after {
+                        bottom: 4px;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

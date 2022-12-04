@@ -1,0 +1,24 @@
+/*--------------------------------------------------------------
+# Homepage
+--------------------------------------------------------------*/
+
+.home {
+
+    h2 {
+        font-size: 5rem;
+        line-height: 1.125em;
+        max-width: 800px;
+        margin: 0 auto;
+
+        &:last-child {
+            margin-bottom: 3rem;
+        }
+    }
+
+    .the-content {
+        margin-top: 2rem;
+        @include breakpoint(md) {
+            margin-top: 5rem;
+        }
+    }
+}

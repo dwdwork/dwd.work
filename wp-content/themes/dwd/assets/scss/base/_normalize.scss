@@ -1,0 +1,18 @@
+/*--------------------------------------------------------------
+# Normalise
+--------------------------------------------------------------*/
+
+html {
+    font-size: 18px;
+}
+
+body {
+    @extend .baskerville;
+    color: $gray-type;
+    background-color: $gray-light;
+}
+
+::selection {
+    color: white;
+    background: $primary;
+}

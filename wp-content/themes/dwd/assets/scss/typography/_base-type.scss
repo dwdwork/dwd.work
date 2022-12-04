@@ -1,0 +1,33 @@
+/*--------------------------------------------------------------
+# Define base typography
+--------------------------------------------------------------*/
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: century-gothic, sans-serif;
+    font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    letter-spacing: -.015rem;
+    margin: 0;
+}
+
+h1, h2 {
+    font-weight: 700;
+    color: $gray;
+}
+
+h1 {
+    font-size: 3rem;
+    @include breakpoint(md) {
+        font-size: 5rem;
+    }
+}
+
+p {
+    line-height: 1.5;
+}
+
+a {
+    color: $secondary;
+}
