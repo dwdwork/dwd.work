@@ -42,11 +42,8 @@ body {
 
     .the-content {
         margin: 2rem auto;
-
-        p, blockquote {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        max-width: 800px;
+        margin: 0 auto;
         
         p {
             margin-bottom: 1.5em;

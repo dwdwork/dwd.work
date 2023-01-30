@@ -16,3 +16,7 @@ wp-content/plugins/*
 # Ignore everything in themes except the base theme
 wp-content/themes/*
 !wp-content/themes/dwd
+
+# Ignore all files in node modules
+node_modules*
+build*
