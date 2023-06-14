@@ -3,11 +3,9 @@
  * The template for displaying all single pages
  */
 
-get_header(); ?>
-    
-    <main id="index-main" clas="index-main">
-    
-    <?php /* Page Content */
+get_header(); 
+
+    /* Page Content */
     if ( have_posts() ) : while ( have_posts() ): the_post(); ?>
 
         <div id="page-<?php the_ID(); ?>" class="page-content">
@@ -22,8 +20,6 @@ get_header(); ?>
             
         </div>
 
-    <?php endwhile; endif; ?>
+    <?php endwhile; endif;
 
-</main>
-
-<?php get_footer(); ?>
+get_footer(); ?>
