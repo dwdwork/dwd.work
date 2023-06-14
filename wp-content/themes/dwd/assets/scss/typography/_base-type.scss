@@ -6,14 +6,18 @@ html {
     font-size: 18px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: century-gothic, sans-serif;
-    font-style: normal;
+body {
+    font-family: 'Helvetica', sans-serif;
+    color: $gray-type;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: $gray-light;
 }
 
-h1, h2, h3, h4, h5, h6, p {
-    letter-spacing: -0.1px;
-    margin: 0;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'century-gothic', sans-serif;
+    font-style: normal;
+    letter-spacing: -0.5px;
 }
 
 h1, h2 {
@@ -23,6 +27,7 @@ h1, h2 {
 
 h1 {
     font-size: 3rem;
+    margin: 1rem auto 1.5rem auto;
     @include breakpoint(md) {
         font-size: 4rem;
     }
@@ -30,19 +35,20 @@ h1 {
 
 h2 {
     font-size: 2.25rem;
+    margin: 1rem auto;
     @include breakpoint(md) {
         font-size: 3rem;
     }
 }
 
 h3 {
-    font-size: 1.75rem;
+    margin: .5rem auto .25rem;
+    font-size: 1.25rem;
     @include breakpoint(md) {
-        font-size: 2.25rem;
+        font-size: 2rem;
     }
 }
 
 p {
-    font-size: 1rem;
-    line-height: 1.5;
+    margin: 0 auto 1rem auto;
 }
