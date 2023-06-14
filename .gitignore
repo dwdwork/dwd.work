@@ -42,11 +42,11 @@ local-xdebuginfo.php
 # Content 
 wp-content/
 !wp-content/themes/dwd/
-!wp-content/themes/dwd/**/*
 
 # Other
-images/
-partial-recovery/
-error_log*
+build/
+/images/
+/partial-recovery/
+/error_log*
 /sitemap*
 /logo*
