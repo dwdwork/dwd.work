@@ -42,6 +42,7 @@ local-xdebuginfo.php
 # Content 
 wp-content/
 !wp-content/themes/dwd/
+!wp-content/themes/dwd/**/*
 
 # Other
 images/
