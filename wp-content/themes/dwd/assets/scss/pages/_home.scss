@@ -4,6 +4,13 @@
 
 .home {
 
+    h1 {
+        font-size: 3.5rem;
+        @include breakpoint(md) {
+            font-size: 5rem;
+        }
+    }
+
     h2 {
         font-size: 5rem;
         line-height: 1.125em;

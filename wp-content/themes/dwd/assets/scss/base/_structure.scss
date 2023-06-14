@@ -43,9 +43,30 @@ body {
     .the-content {
         margin: 2rem auto;
 
-        p, blockquote {
-            max-width: 800px;
-            margin: 0 auto;
+        h2 {
+            font-weight: 700;
+            letter-spacing: 0;
+            padding: .25rem  1.5rem;
+        }
+
+        & > * {
+            margin-bottom: 1.5rem;
+
+            &:not(.full-width) {
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            &.full-width {
+                width: 100%;
+
+                & > div {
+                    max-width: 800px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
         }
         
         p {

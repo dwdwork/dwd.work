@@ -1,6 +1,47 @@
-# Ignore everything
+# Wordpress - ignore core, configuration, examples, uploads and logs.
+# https://github.com/github/gitignore/blob/main/WordPress.gitignore
+
+# Ignore everything in root
 *
+
+# Core
+/wp-admin/
+/wp-content/index.php
+/wp-content/languages
+/wp-content/plugins/index.php
+/wp-content/themes/index.php
+/wp-content/themes/convercent
+/wp-includes/
+/index.php
+/license.txt
+/readme.html
+/wp-*.php
+/xmlrpc.php
+
+# Configuration
+wp-config.php
+
+# Themes
+/wp-content/themes/twenty*/
+
+# Plugins plugin
+/wp-content/plugins/hello.php
+
+# Uploads
+/wp-content/uploads/
+
+# Log files
+*.log
+*.DS_Store
+
+# htaccess
+/.htaccess
+
+# Node
+node_modules/
+.DS_Store
+local-xdebuginfo.php
 
 # Include the WordPress theme files
 !/wp-content/themes/dwd/
-!/wp-content/themes/dwd/**/*
+!/wp-content/themes/dwd/*
