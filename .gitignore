@@ -42,3 +42,4 @@ local-xdebuginfo.php
 # Ignore everything except main theme
 *
 !wp-content/themes/dwd/*
+!wp-content/themes/dwd/**/*
