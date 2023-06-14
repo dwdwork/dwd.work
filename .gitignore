@@ -39,7 +39,13 @@ node_modules/
 .DS_Store
 local-xdebuginfo.php
 
-# Ignore everything except main theme
-*
-!wp-content/themes/dwd/*
-!wp-content/themes/dwd/**/*
+# Content 
+wp-content/
+!wp-content/themes/dwd/
+
+# Other
+images/
+partial-recovery/
+error_log*
+/sitemap*
+/logo*
