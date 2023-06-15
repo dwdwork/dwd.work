@@ -14,11 +14,13 @@
  */
 
 /**
- * Registers the block using the metadata loaded from the `block.json` file.
+ * Registers the block using the metadata loaded from each blocks.json file
  * Behind the scenes, it registers also all assets so they can be enqueued
  * through the block editor in the corresponding context.
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
+ * 
+ * icons: https://developer.wordpress.org/resource/dashicons
  */
 
  function dwd_blocks_portfolio_cateogry( $categories ) {
@@ -32,7 +34,7 @@
         ]
     );
 }
-add_action( 'block_categories', 'dwd_blocks_portfolio_cateogry', 10, 2 );
+add_action( 'block_categories_all', 'dwd_blocks_portfolio_cateogry', 10, 2 );
 
 function create_block_dwd_blocks_block_init() {
 	register_block_type( __DIR__ . '/build/block-a' );
