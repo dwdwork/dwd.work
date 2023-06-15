@@ -5,6 +5,8 @@
 *
 
 # Except for specific directories or files
+!README.md
+!robots.txt
 !wp-content/themes/dwd/
 !wp-content/plugins/dwd-blocks/
 
