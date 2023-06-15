@@ -7,3 +7,10 @@
 # Except for specific directories or files
 !wp-content/themes/dwd/
 !wp-content/plugins/dwd-blocks/
+
+# But still ignore the following in each directory
+
+
+**/node_modules/
+wp-content/themes/dwd/**/build/
+wp-content/themes/dwd-blocks/**/build/
