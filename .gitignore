@@ -8,7 +8,9 @@
 !README.md
 !robots.txt
 !wp-content/themes/dwd/
+!wp-content/themes/dwd/**/*
 !wp-content/plugins/dwd-blocks/
+!wp-content/plugins/dwd-blocks/**/*
 
 # But still ignore the following in each directory
 **/node_modules/
