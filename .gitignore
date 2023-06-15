@@ -19,10 +19,11 @@
 wp-config.php
 
 # Themes
-/wp-content/themes/twenty*/
+wp-content/themes/twenty*/
 
-# Plugins plugin
-/wp-content/plugins/hello.php
+# Plugins
+wp-content/plugins/*
+wp-content/mu-plugins/*
 
 # Uploads
 /wp-content/uploads/

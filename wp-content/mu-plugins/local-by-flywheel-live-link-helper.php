@@ -173,9 +173,11 @@ class LocalWP_Live_Link_Helper {
 		$str = $this->replace_host( $this->home_domain, $tunnel_host, $str );
 
 		/**
-		 * Force HTTPS
+		 * Force HTTPS, but not for local dev testing setup ($tunnel_host ends with tunnel.testing:<port> )
 		 */
-		$str = str_replace( 'http://' . $tunnel_host, 'https://' . $tunnel_host, $str );
+		if (!preg_match('/^.*tunnel\.testing:\d+$/i', $tunnel_host)) {
+			$str = str_replace( 'http://' . $tunnel_host, 'https://' . $tunnel_host, $str );
+		}
 
 		return $str;
 	}
@@ -184,7 +186,7 @@ class LocalWP_Live_Link_Helper {
 	 * Generic replacement of the site's tunnel hostname to the local hostname,
 	 * used when saving options to the database via the pre_update_option filter hook
 	 *
-	 * @param mixed $option Option being saved, provided by the filter. Will 
+	 * @param mixed $option Option being saved, provided by the filter. Will
 	 * 						usually be a serialized string, but may be an
 	 * 						unserialized type in some cases. See:
 	 * 						https://developer.wordpress.org/reference/functions/get_option/
@@ -202,7 +204,7 @@ class LocalWP_Live_Link_Helper {
 	/**
 	 * Go through post properties and replace the tunnel host with the local host
 	 *
-	 * @param WP_Post $post 
+	 * @param WP_Post $post
 	 */
 	public function make_link_local_in_posts( $post ) {
 		$post['post_content'] = $this->make_link_local( $post['post_content'] );
