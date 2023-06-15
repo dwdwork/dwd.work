@@ -8,21 +8,20 @@ html {
 
 body {
     font-family: 'Helvetica', sans-serif;
-    color: $gray-type;
+    color: $gray;
     font-size: 1rem;
     line-height: 1.5;
-    background-color: $gray-light;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'century-gothic', sans-serif;
     font-style: normal;
     letter-spacing: -0.5px;
+    color: $gray-dark;
 }
 
-h1, h2 {
+h1, h2 { 
     font-weight: 700;
-    color: $gray;
 }
 
 h1 {
@@ -51,4 +50,8 @@ h3 {
 
 p {
     margin: 0 auto 1rem auto;
+}
+
+strong {
+    color: $gray-dark;
 }
