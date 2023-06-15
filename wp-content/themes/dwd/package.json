@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.5",
+    "@wordpress/icons": "^9.26.0",
     "jquery": "^3.6.0"
   }
 }
