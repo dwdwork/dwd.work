@@ -81,3 +81,5 @@ $header_class = $show_title ? 'site-title' : 'screen-reader-text';
 </header>
 
 <?php dynamic_header(); ?>
+
+<main id="index-main" clas="index-main">

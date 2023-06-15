@@ -2,13 +2,21 @@
 # Homepage
 --------------------------------------------------------------*/
 
-.home {
+body.home {
+
+    .page-title {
+        display: none;
+    }
 
     h2 {
-        font-size: 5rem;
-        line-height: 1.125em;
         max-width: 800px;
         margin: 0 auto;
+        font-size: 2.5rem;
+        line-height: 1.25;
+        margin-bottom: 1em;
+        @include breakpoint(md) {
+            font-size: 4rem;
+        }
 
         &:last-child {
             margin-bottom: 3rem;
@@ -17,6 +25,9 @@
 
     .the-content {
         margin-top: 2rem;
+        letter-spacing: .1px;
+        line-height: 1.75;
+        font-size: 20px;
         @include breakpoint(md) {
             margin-top: 5rem;
         }

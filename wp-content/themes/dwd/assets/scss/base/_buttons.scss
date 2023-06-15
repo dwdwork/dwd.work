@@ -1,0 +1,14 @@
+/*--------------------------------------------------------------
+# Base: Buttons
+--------------------------------------------------------------*/
+
+.wp-block-button__link, .btn {
+    font-family: 'century-gothic', sans-serif;
+    font-weight: 700;
+    border: none !important;
+    background: linear-gradient(45deg, $red, $red-dark);
+
+    strong {
+        color: white !important;
+    }
+}

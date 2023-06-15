@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /blog/
+Allow: /work/
+Allow: /about/
+Allow: /contact/
+Allow: /zavvie/
+Allow: /work/
+Allow: /wp-admin/admin-ajax.php
+Disallow: /wp-admin/
+Disallow: https://dwd.work/wp-content/uploads/wpforms/
+Disallow: /
+
+Sitemap: https://dwd.work/wp-sitemap.xml

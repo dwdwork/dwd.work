@@ -7,6 +7,7 @@ body {
     width: 100vw;
     height: 100vh;
     position: relative;
+    background-color: $gray-light;
     z-index: 0;
 
     .overlay {
@@ -23,40 +24,26 @@ body {
     }
 }
 
-.page-content {
-    padding: 1rem;
-    @include breakpoint(md) {
-        padding: .5rem;
-    }
-    @include breakpoint(lg) {
-        padding: 0;
-    }
+main#index-main {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 
-    .page-title {
-
-        h1 {
+    & > * {
+    
+        &:not(.full-width) {
             max-width: 800px;
-            margin: 0 auto;
+            margin-left: auto;
+            margin-right: auto;
         }
-    }
 
-    .the-content {
-        margin: 2rem auto;
+        &.full-width {
+            width: 100%;
 
-        p, blockquote {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        p {
-            margin-bottom: 1.5em;
-        }
-        
-        a {
-            transition: opacity .2s ease;
-
-            &:hover {
-                opacity: .45;
+            & > div {
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
             }
         }
     }

@@ -2,32 +2,56 @@
 # Define base typography
 --------------------------------------------------------------*/
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: century-gothic, sans-serif;
-    font-style: normal;
+html {
+    font-size: 18px;
 }
 
-h1, h2, h3, h4, h5, h6, p {
-    letter-spacing: -.015rem;
-    margin: 0;
-}
-
-h1, h2 {
-    font-weight: 700;
+body {
+    font-family: 'Helvetica', sans-serif;
     color: $gray;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'century-gothic', sans-serif;
+    font-style: normal;
+    letter-spacing: -0.5px;
+    color: $gray-dark;
+}
+
+h1, h2 { 
+    font-weight: 700;
 }
 
 h1 {
     font-size: 3rem;
+    margin: 1rem auto 1.5rem auto;
     @include breakpoint(md) {
-        font-size: 5rem;
+        font-size: 4rem;
+    }
+}
+
+h2 {
+    font-size: 2.25rem;
+    margin: 1rem auto;
+    @include breakpoint(md) {
+        font-size: 3rem;
+    }
+}
+
+h3 {
+    margin: .5rem auto .25rem;
+    font-size: 1.25rem;
+    @include breakpoint(md) {
+        font-size: 2rem;
     }
 }
 
 p {
-    line-height: 1.5;
+    margin: 0 auto 1rem auto;
 }
 
-a {
-    color: $secondary;
+strong {
+    color: $gray-dark;
 }

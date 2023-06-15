@@ -87,7 +87,7 @@ header#site-header {
                 height: 3px;
                 border-radius: 1px;
                 margin: 2px auto;
-                background-color: $secondary;
+                background-color: $red;
             }
         }
     }
@@ -104,7 +104,7 @@ header#site-header {
             a {
                 cursor: pointer;
                 padding: 1rem;
-                color: $secondary;
+                color: $red;
             }
         }
 
@@ -134,7 +134,7 @@ header#site-header {
 
             a {
                 @extend .century-gothic-bold;
-                color: $gray;
+                color: $gray-dark;
                 padding: 12px;
                 text-decoration: none;
                 position: relative;
@@ -149,7 +149,7 @@ header#site-header {
                     left: 6px;
                     height: 4px;
                     opacity: 0;
-                    background-color: $secondary;
+                    background-color: $red;
                     transition: all .2s ease;
                 }
 
