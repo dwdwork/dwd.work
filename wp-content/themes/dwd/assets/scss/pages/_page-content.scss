@@ -1,0 +1,42 @@
+/*--------------------------------------------------------------
+# Page Content
+--------------------------------------------------------------*/
+
+
+body.page {
+
+    .page-content {
+        padding: 1rem;
+        @include breakpoint(md) {
+            padding: .5rem;
+        }
+        @include breakpoint(lg) {
+            padding: 0;
+        }
+    
+        .page-title {
+    
+            h1 {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+        }
+    
+        .the-content {
+            margin: 2rem auto;
+    
+            h2 {
+                font-weight: 700;
+                letter-spacing: 0;
+            }
+            
+            a {
+                transition: opacity .2s ease;
+    
+                &:hover {
+                    opacity: .45;
+                }
+            }
+        }
+    }
+}
