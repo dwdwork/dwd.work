@@ -4,13 +4,28 @@
 # Ignore everything
 *
 
-# Except for specific directories or files
+# Except for specific files and directories
 !README.md
 !robots.txt
-!wp-content/themes/dwd/
-!wp-content/plugins/dwd-blocks/
+!wp-content/
 
-# But still ignore the following in each directory
+# Ignore everything except plugins and themes
+wp-content/jetpack-waf/
+wp-content/mu-plugins/
+wp-content/upgrade/
+wp-content/upgrade/
+wp-content/uploads/
+!wp-content/plugins/
+!wp-content/themes/
+
+# Ignore everything in plugins and themes that is not theme specific
+wp-content/themes/*
+wp-content/plugins/*
+!wp-content/themes/dwd/
+!wp-content/themes/dwd/**/*
+!wp-content/plugins/dwd-blocks/
+!wp-content/plugins/dwd-blocks/**/*
+
+# But still ignore the compiled files
 **/node_modules/
-wp-content/themes/dwd/**/build/
-wp-content/themes/dwd-blocks/**/build/
+**/build/
