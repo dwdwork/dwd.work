@@ -15,10 +15,25 @@
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 
-
 	"attributes": {
-		"content": {
+		"description": {
+			"type": "string",
+			"source": "text",
+			"selector": "div",
+			"default": ""
+		},
+		"imageUrl": {
 			"type": "string"
+		},
+			"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "alt",
+			"default": ""
 		}
 	}
 }

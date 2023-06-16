@@ -27,11 +27,6 @@ import metadata from './block.json';
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType( metadata.name, {
-
-	attributes: {
-		content: {type: 'string'}
-	},
-	
 	/**
 	 * @see ./edit.js
 	 */
