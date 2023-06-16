@@ -65,7 +65,7 @@ $header_class = $show_title ? 'site-title' : 'screen-reader-text';
           <div class="hamburger-close century-gothic-bold"><a class="close-btn">x</a></div>
           <ul class="navbar-nav">
               <?php wp_nav_menu(array(
-                'menu' => 'main-nav',
+                'menu' => 'primary',
                 'items_wrap'=>'%3$s',
                 'container' => false,
                 'list_item_class' => "nav-item",
