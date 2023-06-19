@@ -7,6 +7,7 @@ body {
     width: 100vw;
     height: 100vh;
     position: relative;
+    overflow-x: hidden !important;
     background-color: $gray-light;
     z-index: 0;
 
@@ -47,4 +48,9 @@ main#index-main {
             }
         }
     }
+}
+
+img {
+    height: auto;
+    max-width: 100%;
 }
