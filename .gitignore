@@ -19,8 +19,6 @@ wp-content/uploads/
 !wp-content/themes/
 
 # Ignore everything in plugins and themes that is not theme specific
-wp-content/themes/
-wp-content/plugins/
 !wp-content/themes/dwd/
 !wp-content/themes/dwd/**/*
 !wp-content/plugins/dwd-blocks/
