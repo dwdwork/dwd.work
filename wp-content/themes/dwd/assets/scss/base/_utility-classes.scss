@@ -1,0 +1,802 @@
+/*--------------------------------------------------------------
+# Utility Classes: Used to reduce CSS bloat
+--------------------------------------------------------------*/
+
+.d-flex {
+    display: flex;
+}
+
+.flex {
+
+    &-row {
+        flex-direction: row;
+    }
+
+    &-column {
+        flex-direction: column;
+    }
+
+    &-justify {
+        
+        &-start {
+            justify-content: flex-start;
+        }
+
+        &-center {
+            justify-content: center;
+        }
+
+        &-end {
+            justify-content: flex-end;
+        }
+
+        &-around {
+            justify-content: space-around;
+        }
+
+        &-between {
+            justify-content: space-between;
+        }
+    }
+
+    &-align {
+
+        &-start {
+            align-items: flex-start;
+        }
+
+        &-center {
+            align-items: center;
+        }
+
+        &-end {
+            align-items: flex-end;
+        }
+    }
+}
+
+.d-block {
+    display: block;
+}
+
+.tags {
+    color: $teal-light;
+    margin: 0;
+    padding: 0;
+    font-size: .75rem;
+}
+
+.m {
+    
+    &-auto {
+        margin: auto;
+    }
+
+    &-0 {
+        margin: 0;
+    }
+
+    &y {
+
+        &-auto {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+    
+        &-0 {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        &-half {
+            margin-top: .25rem;
+            margin-bottom: .25rem;
+            @include breakpoint(md) {
+                margin-top: .5rem;
+                margin-bottom: .5rem;
+            }
+        }
+
+        &-1 {
+            margin-top: .5rem;
+            margin-bottom: .5rem;
+            @include breakpoint(md) {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        &-1half {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            @include breakpoint(md) {
+                margin-top: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        &-2 {
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            @include breakpoint(md) {
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+            }
+        }
+        
+        &-2half {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            @include breakpoint(md) {
+                margin-top: 2.5rem;
+                margin-bottom: 2.5rem;
+            }
+        }
+
+        &-3 {
+            margin-top: 2.5rem;
+            margin-bottom: 2.5rem;
+            @include breakpoint(md) {
+                margin-top: 3rem;
+                margin-bottom: 3rem;
+            }
+        }
+
+        &-3half {
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+            @include breakpoint(md) {
+                margin-top: 3.5rem;
+                margin-bottom: 3.5rem;
+            }
+        }
+
+        &-4 {
+            margin-top: 3.5rem;
+            margin-bottom: 3.5rem;
+            @include breakpoint(md) {
+                margin-top: 4rem;
+                margin-bottom: 4rem;
+            }
+        }
+
+        &-4half {
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+            @include breakpoint(md) {
+                margin-top: 4.5rem;
+                margin-bottom: 4.5rem;
+            }
+        }
+
+        &-5 {
+            margin-top: 4.5rem;
+            margin-bottom: 4.5rem;
+            @include breakpoint(md) {
+                margin-top: 5rem;
+                margin-bottom: 5rem;
+            }
+        }
+
+        &-5half {
+            margin-top: 5rem;
+            margin-bottom: 5rem;
+            @include breakpoint(md) {
+                margin-top: 5.5rem;
+                margin-bottom: 5.5rem;
+            }
+        }
+
+        &-6 {
+            margin-top: 5.5rem;
+            margin-bottom: 5.5rem;
+            @include breakpoint(md) {
+                margin-top: 6rem;
+                margin-bottom: 6rem;
+            }
+        }
+    }
+
+    &t {
+
+        &-auto {
+            margin-top: auto;
+        }
+    
+        &-0 {
+            margin-top: 0;
+        }
+
+        &-half {
+            margin-top: .25rem;
+            @include breakpoint(md) {
+                margin-top: .5rem;
+            }
+        }
+
+        &-1 {
+            margin-top: .5rem;
+            @include breakpoint(md) {
+                margin-top: 1rem;
+            }
+        }
+
+        &-1half {
+            margin-top: 1rem;
+            @include breakpoint(md) {
+                margin-top: 1.5rem;
+            }
+        }
+
+        &-2 {
+            margin-top: 1.5rem;
+            @include breakpoint(md) {
+                margin-top: 2rem;
+            }
+        }
+        
+        &-2half {
+            margin-top: 2rem;
+            @include breakpoint(md) {
+                margin-top: 2.5rem;
+            }
+        }
+
+        &-3 {
+            margin-top: 2.5rem;
+            @include breakpoint(md) {
+                margin-top: 3rem;
+            }
+        }
+
+        &-3half {
+            margin-top: 3rem;
+            @include breakpoint(md) {
+                margin-top: 3.5rem;
+            }
+        }
+
+        &-4 {
+            margin-top: 3.5rem;
+            @include breakpoint(md) {
+                margin-top: 4rem;
+            }
+        }
+
+        &-4half {
+            margin-top: 4rem;
+            @include breakpoint(md) {
+                margin-top: 4.5rem;
+            }
+        }
+
+        &-5 {
+            margin-top: 4.5rem;
+            @include breakpoint(md) {
+                margin-top: 5rem;
+            }
+        }
+
+        &-5half {
+            margin-top: 5rem;
+            @include breakpoint(md) {
+                margin-top: 5.5rem;
+            }
+        }
+
+        &-6 {
+            margin-top: 5.5rem;
+            @include breakpoint(md) {
+                margin-top: 6rem;
+            }
+        }
+    }
+
+    &b {
+
+        &-auto {
+            margin-bottom: auto;
+        }
+    
+        &-0 {
+            margin-bottom: 0;
+        }
+
+        &-half {
+            margin-bottom: .25rem;
+            @include breakpoint(md) {
+                margin-bottom: .5rem;
+            }
+        }
+
+        &-1 {
+            margin-bottom: .5rem;
+            @include breakpoint(md) {
+                margin-bottom: 1rem;
+            }
+        }
+
+        &-1half {
+            margin-bottom: 1rem;
+            @include breakpoint(md) {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        &-2 {
+            margin-bottom: 1.5rem;
+            @include breakpoint(md) {
+                margin-bottom: 2rem;
+            }
+        }
+        
+        &-2half {
+            margin-bottom: 2rem;
+            @include breakpoint(md) {
+                margin-bottom: 2.5rem;
+            }
+        }
+
+        &-3 {
+            margin-bottom: 2.5rem;
+            @include breakpoint(md) {
+                margin-bottom: 3rem;
+            }
+        }
+
+        &-3half {
+            margin-bottom: 3rem;
+            @include breakpoint(md) {
+                margin-bottom: 3.5rem;
+            }
+        }
+
+        &-4 {
+            margin-bottom: 3.5rem;
+            @include breakpoint(md) {
+                margin-bottom: 4rem;
+            }
+        }
+
+        &-4half {
+            margin-bottom: 4rem;
+            @include breakpoint(md) {
+                margin-bottom: 4.5rem;
+            }
+        }
+
+        &-5 {
+            margin-bottom: 4.5rem;
+            @include breakpoint(md) {
+                margin-bottom: 5rem;
+            }
+        }
+
+        &-5half {
+            margin-bottom: 5rem;
+            @include breakpoint(md) {
+                margin-bottom: 5.5rem;
+            }
+        }
+
+        &-6 {
+            margin-bottom: 5.5rem;
+            @include breakpoint(md) {
+                margin-bottom: 6rem;
+            }
+        }
+    }
+}
+
+.p {
+    
+    &-auto {
+        margin: auto;
+    }
+
+    &-0 {
+        margin: 0;
+    }
+
+    &-half {
+        padding: .25rem;
+        @include breakpoint(md) {
+            padding: .5rem;
+        }
+    }
+
+    &-1 {
+        padding: .5rem;
+        @include breakpoint(md) {
+            padding: 1rem;
+        }
+    }
+
+    &-1half {
+        padding: 1rem;
+        @include breakpoint(md) {
+            padding: 1.5rem;
+        }
+    }
+
+    &-2 {
+        padding: 1.5rem;
+        @include breakpoint(md) {
+            padding: 2rem;
+        }
+    }
+    
+    &-2half {
+        padding: 2rem;
+        @include breakpoint(md) {
+            padding: 2.5rem;
+        }
+    }
+
+    &-3 {
+        padding: 2.5rem;
+        @include breakpoint(md) {
+            padding: 3rem;
+        }
+    }
+
+    &-3half {
+        padding: 3rem;
+        @include breakpoint(md) {
+            padding: 3.5rem;
+        }
+    }
+
+    &-4 {
+        padding: 3.5rem;
+        @include breakpoint(md) {
+            padding: 4rem;
+        }
+    }
+
+    &-4half {
+        padding: 4rem;
+        @include breakpoint(md) {
+            padding: 4.5rem;
+        }
+    }
+
+    &-5 {
+        padding: 4.5rem;
+        @include breakpoint(md) {
+            padding: 5rem;
+        }
+    }
+
+    &-5half {
+        padding: 5rem;
+        @include breakpoint(md) {
+            padding: 5.5rem;
+        }
+    }
+
+    &-6 {
+        padding: 5.5rem;
+        @include breakpoint(md) {
+            padding: 6rem;
+        }
+    }
+
+    &y {
+
+        &-auto {
+            padding-top: auto;
+            padding-bottom: auto;
+        }
+    
+        &-0 {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        &-half {
+            padding-top: .25rem;
+            padding-bottom: .25rem;
+            @include breakpoint(md) {
+                padding-top: .5rem;
+                padding-bottom: .5rem;
+            }
+        }
+
+        &-1 {
+            padding-top: .5rem;
+            padding-bottom: .5rem;
+            @include breakpoint(md) {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+        }
+
+        &-1half {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            @include breakpoint(md) {
+                padding-top: 1.5rem;
+                padding-bottom: 1.5rem;
+            }
+        }
+
+        &-2 {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+            @include breakpoint(md) {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+        }
+        
+        &-2half {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            @include breakpoint(md) {
+                padding-top: 2.5rem;
+                padding-bottom: 2.5rem;
+            }
+        }
+
+        &-3 {
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+            @include breakpoint(md) {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+        }
+
+        &-3half {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+            @include breakpoint(md) {
+                padding-top: 3.5rem;
+                padding-bottom: 3.5rem;
+            }
+        }
+
+        &-4 {
+            padding-top: 3.5rem;
+            padding-bottom: 3.5rem;
+            @include breakpoint(md) {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+        }
+
+        &-4half {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            @include breakpoint(md) {
+                padding-top: 4.5rem;
+                padding-bottom: 4.5rem;
+            }
+        }
+
+        &-5 {
+            padding-top: 4.5rem;
+            padding-bottom: 4.5rem;
+            @include breakpoint(md) {
+                padding-top: 5rem;
+                padding-bottom: 5rem;
+            }
+        }
+
+        &-5half {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            @include breakpoint(md) {
+                padding-top: 5.5rem;
+                padding-bottom: 5.5rem;
+            }
+        }
+
+        &-6 {
+            padding-top: 5.5rem;
+            padding-bottom: 5.5rem;
+            @include breakpoint(md) {
+                padding-top: 6rem;
+                padding-bottom: 6rem;
+            }
+        }
+    }
+
+    &t {
+
+        &-auto {
+            padding-top: auto;
+        }
+    
+        &-0 {
+            padding-top: 0;
+        }
+
+        &-half {
+            padding-top: .25rem;
+            @include breakpoint(md) {
+                padding-top: .5rem;
+            }
+        }
+
+        &-1 {
+            padding-top: .5rem;
+            @include breakpoint(md) {
+                padding-top: 1rem;
+            }
+        }
+
+        &-1half {
+            padding-top: 1rem;
+            @include breakpoint(md) {
+                padding-top: 1.5rem;
+            }
+        }
+
+        &-2 {
+            padding-top: 1.5rem;
+            @include breakpoint(md) {
+                padding-top: 2rem;
+            }
+        }
+        
+        &-2half {
+            padding-top: 2rem;
+            @include breakpoint(md) {
+                padding-top: 2.5rem;
+            }
+        }
+
+        &-3 {
+            padding-top: 2.5rem;
+            @include breakpoint(md) {
+                padding-top: 3rem;
+            }
+        }
+
+        &-3half {
+            padding-top: 3rem;
+            @include breakpoint(md) {
+                padding-top: 3.5rem;
+            }
+        }
+
+        &-4 {
+            padding-top: 3.5rem;
+            @include breakpoint(md) {
+                padding-top: 4rem;
+            }
+        }
+
+        &-4half {
+            padding-top: 4rem;
+            @include breakpoint(md) {
+                padding-top: 4.5rem;
+            }
+        }
+
+        &-5 {
+            padding-top: 4.5rem;
+            @include breakpoint(md) {
+                padding-top: 5rem;
+            }
+        }
+
+        &-5half {
+            padding-top: 5rem;
+            @include breakpoint(md) {
+                padding-top: 5.5rem;
+            }
+        }
+
+        &-6 {
+            padding-top: 5.5rem;
+            @include breakpoint(md) {
+                padding-top: 6rem;
+            }
+        }
+    }
+
+    &b {
+
+        &-auto {
+            padding-bottom: auto;
+        }
+    
+        &-0 {
+            padding-bottom: 0;
+        }
+
+        &-half {
+            padding-bottom: .25rem;
+            @include breakpoint(md) {
+                padding-bottom: .5rem;
+            }
+        }
+
+        &-1 {
+            padding-bottom: .5rem;
+            @include breakpoint(md) {
+                padding-bottom: 1rem;
+            }
+        }
+
+        &-1half {
+            padding-bottom: 1rem;
+            @include breakpoint(md) {
+                padding-bottom: 1.5rem;
+            }
+        }
+
+        &-2 {
+            padding-bottom: 1.5rem;
+            @include breakpoint(md) {
+                padding-bottom: 2rem;
+            }
+        }
+        
+        &-2half {
+            padding-bottom: 2rem;
+            @include breakpoint(md) {
+                padding-bottom: 2.5rem;
+            }
+        }
+
+        &-3 {
+            padding-bottom: 2.5rem;
+            @include breakpoint(md) {
+                padding-bottom: 3rem;
+            }
+        }
+
+        &-3half {
+            padding-bottom: 3rem;
+            @include breakpoint(md) {
+                padding-bottom: 3.5rem;
+            }
+        }
+
+        &-4 {
+            padding-bottom: 3.5rem;
+            @include breakpoint(md) {
+                padding-bottom: 4rem;
+            }
+        }
+
+        &-4half {
+            padding-bottom: 4rem;
+            @include breakpoint(md) {
+                padding-bottom: 4.5rem;
+            }
+        }
+
+        &-5 {
+            padding-bottom: 4.5rem;
+            @include breakpoint(md) {
+                padding-bottom: 5rem;
+            }
+        }
+
+        &-5half {
+            padding-bottom: 5rem;
+            @include breakpoint(md) {
+                padding-bottom: 5.5rem;
+            }
+        }
+
+        &-6 {
+            padding-bottom: 5.5rem;
+            @include breakpoint(md) {
+                padding-bottom: 6rem;
+            }
+        }
+    }
+}
+
+.p {
+    
+    &-0 {
+        padding: 0;
+    }
+}
