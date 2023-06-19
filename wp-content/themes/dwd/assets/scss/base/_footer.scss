@@ -20,6 +20,8 @@ footer {
             justify-content: center;
             position: relative;
             padding-top: 2rem;
+            padding-left: 0;
+            max-width: 100%;
 
             &:before {
                 content: '';
@@ -32,8 +34,11 @@ footer {
             }
 
             li {
-                padding: 0 2rem;
+                padding: 0 .5rem;
                 margin: 0;
+                @include breakpoint(md) {
+                    padding: 0 2rem;
+                }
 
                 a {
                     @extend .century-gothic-bold;
