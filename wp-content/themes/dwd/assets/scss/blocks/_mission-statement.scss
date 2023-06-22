@@ -4,8 +4,9 @@
 
 .mission-statement {
     color: white;
-    border-radius: .5rem;
-    background-color: $teal-dark;
+    width: 100vw;
+    margin-left: calc((100vw - 800px) / -2);
+    background-color: #013940;
 
     h3 {
         color: white;
