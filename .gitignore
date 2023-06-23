@@ -27,4 +27,5 @@ wp-content/uploads/
 # But still ignore the compiled files
 **/node_modules/
 **/build/
+**/old-site-files/
 **/.DS_Store
