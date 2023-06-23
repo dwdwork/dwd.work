@@ -21,7 +21,17 @@ div.project-link {
             
                 &:not(:last-child) {
                     margin-bottom: .5rem;
+                    @include breakpoint(md) {
+                        margin-bottom: 0;
+                    }
                 }
+            }
+        }
+
+        .row {
+            flex-direction: column;
+            @include breakpoint(md) {
+                flex-direction: row;
             }
         }
     }
@@ -38,9 +48,13 @@ div.project-link {
         }
 
         &-logo {
+            display: none;
             max-width: 75%;
             margin-left: auto;
             margin-right: auto;
+            @include breakpoint(md) {
+                display: flex;
+            }
         }
     }
 

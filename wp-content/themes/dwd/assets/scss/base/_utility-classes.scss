@@ -6,6 +6,17 @@
     display: flex;
 }
 
+.full-width {
+    width: 100vw;
+    margin-left: -1rem;
+    @include breakpoint(content) {
+        margin-left: calc((($screen-width - $content-width) / -2) - 1rem);
+    }
+    @include breakpoint(lg) {
+        margin-left: calc(($screen-width - $content-width) / -2);
+    }
+}
+
 .flex {
 
     &-row {

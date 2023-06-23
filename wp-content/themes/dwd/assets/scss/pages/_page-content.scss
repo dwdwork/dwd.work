@@ -6,13 +6,6 @@
 body.page {
 
     .page-content {
-        padding: 1rem;
-        @include breakpoint(md) {
-            padding: .5rem;
-        }
-        @include breakpoint(lg) {
-            padding: 0;
-        }
     
         .page-title {
     

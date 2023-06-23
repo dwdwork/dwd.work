@@ -2,91 +2,78 @@
 # Define structure
 --------------------------------------------------------------*/
 
-// Screen sizes
-$desktop-2x: 'min-width : 1600px';
-$desktop-xl: 'min-width : 1400px';
-$desktop-lg: 'min-width : 1200px';
-$desktop: 'min-width : 992px';
-$ipad: 'min-width : 768px';
-$tablet: 'min-width : 530px';
-$mobile: 'min-width: 0px';
+// Number values
+$screen-width: 100vw;
+$content-width: 800px;
 
 // Breakpoints
- $breakpoint--xxs:                           320px;
- $breakpoint--xs:                            375px;
- $breakpoint--smaller:                       480px;
- $breakpoint--sm:                            576px;
- $breakpoint--md-small:                      704px;
- $breakpoint--md:                            768px;
- $breakpoint--lg:                            992px;
- $breakpoint--xl:                            1200px;
- $breakpoint--xxl:                           1400px;
-  
- $breakpoints: (
-     'xxs':                                 ( min-width: $breakpoint--xxs ),
-     'xs':                                  ( min-width: $breakpoint--xs ),
-     'smaller':                             ( min-width: $breakpoint--smaller ),
-     'sm':                                  ( min-width: $breakpoint--sm ),
-     'md-small':                            ( min-width: $breakpoint--md-small ),
-     'md':                                  ( min-width: $breakpoint--md ),
-     'lg':                                  ( min-width: $breakpoint--lg ),
-     'xl':                                  ( min-width: $breakpoint--xl ),
-     'xxl':                                 ( min-width: $breakpoint--xxl ),
- );
+$breakpoint--xs:                            400px;
+$breakpoint--sm:                            576px;
+$breakpoint--md:                            768px;
+$breakpoint--content:                       $content-width;
+$breakpoint--lg:                            992px;
+$breakpoint--xl:                            1200px;
+$breakpoint--xxl:                           1400px;
+
+$breakpoints: (
+    'xs':                                   (min-width: $breakpoint--xs),
+    'sm':                                   (min-width: $breakpoint--sm),
+    'md':                                   (min-width: $breakpoint--md),
+    'content':                              (min-width: $breakpoint--content),
+    'lg':                                   (min-width: $breakpoint--lg),
+    'xl':                                   (min-width: $breakpoint--xl),
+    'xxl':                                  (min-width: $breakpoint--xxl),
+);
  
- $breakpoints-max: (
-     'xxs':                                 ( max-width: $breakpoint--xxs - 1 ),
-     'xs':                                  ( max-width: $breakpoint--xs - 1 ),
-     'smaller':                             ( max-width: $breakpoint--smaller - 1 ),
-     'sm':                                  ( max-width: $breakpoint--sm - 1 ),
-     'md-small':                            ( max-width: $breakpoint--md-small - 1 ),
-     'md':                                  ( max-width: $breakpoint--md - 1 ),
-     'lg':                                  ( max-width: $breakpoint--lg - 1 ),
-     'xl':                                  ( max-width: $breakpoint--xl - 1 ),
-     'xxl':                                 ( max-width: $breakpoint--xxl - 1 ),
- );
+$breakpoints-max: (
+    'xs':                                   (max-width: $breakpoint--xs - 1),
+    'sm':                                   (max-width: $breakpoint--sm - 1),
+    'md':                                   (max-width: $breakpoint--md - 1),
+    'content':                              (max-width: $breakpoint--content - 1),
+    'lg':                                   (max-width: $breakpoint--lg - 1),
+    'xl':                                   (max-width: $breakpoint--xl - 1),
+    'xxl':                                  (max-width: $breakpoint--xxl - 1),
+);
 
 // Spacing
-$spacing--xs:                              5px;
-$spacing--sm:                              15px;
-$spacing--md:                              30px;
-$spacing--lg:                              60px;
-$spacing--xl:                              90px;
-$spacing--xxl:                             120px;
+$spacing--xs:                               5px;
+$spacing--sm:                               15px;
+$spacing--md:                               30px;
+$spacing--lg:                               60px;
+$spacing--xl:                               90px;
+$spacing--xxl:                              120px;
 
 $spacing: (
-    'xs':                                  $spacing--xs,
-    'sm':                                  $spacing--sm,
-    'md':                                  $spacing--md,
-    'lg':                                  $spacing--lg,
-    'xl':                                  $spacing--xl,
-    'xxl':                                 $spacing--xxl,
+    'xs':                                   $spacing--xs,
+    'sm':                                   $spacing--sm,
+    'md':                                   $spacing--md,
+    'lg':                                   $spacing--lg,
+    'xl':                                   $spacing--xl,
+    'xxl':                                  $spacing--xxl,
 );
 
-$spacer:                                 1rem;
-$spacing--0:                              0;
-$spacing--1:                              $spacer * .25;
-$spacing--2:                              $spacer * .5;
-$spacing--3:                              $spacer;
-$spacing--4:                              $spacer * 1.5;
-$spacing--5:                              $spacer * 3;
+$spacer:                                    1rem;
+$spacing--0:                                0;
+$spacing--1:                                $spacer * .25;
+$spacing--2:                                $spacer * .5;
+$spacing--3:                                $spacer;
+$spacing--4:                                $spacer * 1.5;
+$spacing--5:                                $spacer * 3;
 
 $spacing: (
-    '0':                                  $spacing--0,
-    '1':                                  $spacing--1,
-    '2':                                  $spacing--2,
-    '3':                                  $spacing--3,
-    '4':                                  $spacing--4,
-    '5':                                  $spacing--5
+    '0':                                    $spacing--0,
+    '1':                                    $spacing--1,
+    '2':                                    $spacing--2,
+    '3':                                    $spacing--3,
+    '4':                                    $spacing--4,
+    '5':                                    $spacing--5
 );
 
-$container--width-xxs:                     320px;
-$container--width-xs:                      375px;
-$container--width-sm:                      540px;
-$container--width-md:                      720px;
-$container--width-lg:                      960px;
-$container--width-xl:                      1140px;
-$container--width-xxl:                     1320px;
-$container--width:                         $container--width-xxl;
+$container--width-xs:                      400px;
+$container--width-sm:                      576px;
+$container--width-md:                      768px;
+$container--width-lg:                      992px;
+$container--width-xl:                      1200px;
+$container--width-xxl:                     1400px;
 
-$grid-gutter-width:           30px !default;
+$grid-gutter-width:                        30px !default;
