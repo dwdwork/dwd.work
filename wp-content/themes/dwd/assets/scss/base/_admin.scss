@@ -1,7 +1,13 @@
 /*--------------------------------------------------------------
-# All Blocks
+# Base: Admin styles
 --------------------------------------------------------------*/
 
-@import 'project-link';
-@import 'project-overview';
-@import 'mission-statement';
+.logged-in {
+
+    &.admin-bar {
+
+        #wpadminbar {
+            position: fixed;
+        }
+    }
+}

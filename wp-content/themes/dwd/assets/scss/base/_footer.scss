@@ -3,11 +3,16 @@
 --------------------------------------------------------------*/
 
 footer {
-    margin-top: 8rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    padding: 5rem 1rem;
+    @include breakpoint(lg) {
+        padding: 5rem 0;
+    }
 
     .container {
-        max-width: 800px;
         margin: auto;
+        max-width: 800px;
 
         .col-12 {
             padding: 0;

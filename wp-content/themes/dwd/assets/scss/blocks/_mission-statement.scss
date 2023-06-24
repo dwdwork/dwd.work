@@ -2,13 +2,20 @@
 # Block: Mission Statement
 --------------------------------------------------------------*/
 
-.mission-statement {
+div.mission-statement {
+    @extend .full-width;
     color: white;
-    border-radius: .5rem;
-    background-color: $teal-dark;
+    background-color: #013940;
+
+    &-text {
+        max-width: 800px;
+        margin: 0 auto;
+    }
 
     h3 {
         color: white;
+        font-size: 1.5rem;
         text-align: center;
+        margin: 0;
     }
 }

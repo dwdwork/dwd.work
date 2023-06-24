@@ -26,6 +26,42 @@
         }
 
         @warn "Custom Breakpoint Set: `#{$breakpoint}`. "
-        (+"Please consider using an available breakpoint: #{map-keys($breakpoints)}.");
+        (+"Please consider using an available breakpoint key: #{map-keys($breakpoints)}.");
+    }
+}
+
+// Margins
+@mixin margin($margin) {
+	@if map-has-key($margins, $margin) {
+		@media #{inspect(map-get($margins, $margin))} {
+			@content;
+		}
+	}
+
+	@else {
+		@media #{"( min-width: #{$margin})"} {
+            @content;
+        }
+
+        @warn "Custom Margin Set: `#{$margin}`. "
+        (+"Please consider using an available margin key: #{map-keys($margins)}.");
+    }
+}
+
+// Paddings
+@mixin padding($padding) {
+	@if map-has-key($paddings, $padding) {
+		@media #{inspect(map-get($paddings, $padding))} {
+			@content;
+		}
+	}
+
+	@else {
+		@media #{"( min-width: #{$padding})"} {
+            @content;
+        }
+
+        @warn "Custom Padding Set: `#{$padding}`. "
+        (+"Please consider using an available padding key: #{map-keys($paddings)}.");
     }
 }

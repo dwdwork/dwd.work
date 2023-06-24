@@ -6,13 +6,6 @@
 body.page {
 
     .page-content {
-        padding: 1rem;
-        @include breakpoint(md) {
-            padding: .5rem;
-        }
-        @include breakpoint(lg) {
-            padding: 0;
-        }
     
         .page-title {
     
@@ -36,6 +29,37 @@ body.page {
                 &:hover {
                     opacity: .45;
                 }
+            }
+        }
+    }
+
+    &:not(.home) .page-content {
+
+        h1 {
+            font-family: 'baskerville', serif;
+            font-style: italic;
+        }
+
+        .the-content {
+            
+            & > h2, & > .wp-block-columns h2 {
+                color: $teal-dark;
+                margin: 2rem 0 3rem;
+                padding: .25rem 0;
+                border-radius: 5rem;
+                
+                &:after {
+                    content: '';
+                    display: block;
+                    height: 6px;
+                    width: 100%;
+                    border-radius: 10px;
+                    background-image: linear-gradient(30deg, $teal-dark, $teal);
+                }
+            }
+
+            .wp-block-columns {
+                margin-top: 2rem;
             }
         }
     }

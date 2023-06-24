@@ -1,7 +1,10 @@
 /*--------------------------------------------------------------
-# All Blocks
+# Base: Bootstrap adjustments
 --------------------------------------------------------------*/
 
-@import 'project-link';
-@import 'project-overview';
-@import 'mission-statement';
+body {
+
+    .container {
+        max-width: unset;
+    }
+}
