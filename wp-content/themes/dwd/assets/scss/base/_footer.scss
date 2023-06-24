@@ -5,6 +5,10 @@
 footer {
     padding-top: 5rem;
     padding-bottom: 5rem;
+    padding: 5rem 1rem;
+    @include breakpoint(lg) {
+        padding: 5rem 0;
+    }
 
     .container {
         margin: auto;

@@ -70,6 +70,12 @@ div.project-link {
 
     &-body {
 
+        p {
+            @include breakpoint(md) {
+                margin-bottom: 0;
+            }
+        }
+
         &-cta {
             justify-content: center;
             @include breakpoint(md) {
