@@ -23,6 +23,8 @@ wp-content/uploads/
 !wp-content/themes/dwd/**/*
 !wp-content/plugins/dwd-blocks/
 !wp-content/plugins/dwd-blocks/**/*
+!wp-content/plugins/dwd-user-dash/
+!wp-content/plugins/dwd-user-dash/**/*
 
 # But still ignore the compiled files
 **/node_modules/
