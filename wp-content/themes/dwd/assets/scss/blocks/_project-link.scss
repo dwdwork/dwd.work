@@ -71,6 +71,8 @@ div.project-link {
     &-body {
 
         p {
+            color: #333333;
+            font-size: 1.05rem;
             @include breakpoint(md) {
                 margin-bottom: 0;
             }
