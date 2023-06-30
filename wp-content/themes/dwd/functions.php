@@ -122,7 +122,7 @@ new dwdFunctions();
 include get_template_directory() . '/inc/dynamic-header.php';
 include get_template_directory() . '/inc/acf.php';
 include get_template_directory() . '/inc/custom-post-types.php';
-include get_template_directory() . '/inc/dashboard.php';
+include get_template_directory() . '/inc/admin.php';
 include get_template_directory() . '/inc/disable-comments.php';
 
 ?>
