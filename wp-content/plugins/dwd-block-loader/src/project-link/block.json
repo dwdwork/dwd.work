@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "create-block/project-link",
+	"name": "dwd-block-loader/project-link",
 	"version": "1.0.0",
 	"title": "Project Link",
 	"category": "portfolio",
@@ -11,29 +11,48 @@
 		"html": false
 	},
 	"textdomain": "project-link",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css",
-
 	"attributes": {
-		"description": {
-			"type": "string",
-			"source": "text",
-			"selector": "div",
-			"default": ""
+		"title": {
+		  "type": "string",
+		  "source": "text",
+		  "selector": ".title"
 		},
-		"imageUrl": {
-			"type": "string"
-		},
-			"imageId": {
+		"logoID": {
 			"type": "number"
 		},
-		"imageAlt": {
+		"logoURL": {
 			"type": "string",
 			"source": "attribute",
-			"selector": "img",
-			"attribute": "alt",
-			"default": ""
-		}
-	}
+			"attribute": "src",
+			"selector": ".logo-img"
+		},
+		"ftImgID": {
+			"type": "number"
+		},
+		"ftImgURL": {
+		  "type": "string",
+		  "source": "attribute",
+		  "attribute": "src",
+		  "selector": ".ft-img"
+		},
+		"textDescription": {
+		  "type": "string",
+		  "source": "html",
+		  "selector": ".text-description"
+		},
+		"link": {
+		  "type": "string",
+		  "source": "attribute",
+		  "attribute": "href",
+		  "selector": ".project-link-body-cta a"
+		},
+		"linkTitle": {
+			"type": "string",
+			"source": "text",
+			"selector": ".project-link-body-cta a"
+		  }
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
 }

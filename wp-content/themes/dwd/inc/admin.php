@@ -14,6 +14,7 @@ class dwdAdminFunctions {
         add_action('wp_nav_menu_item_custom_fields', array($this, 'add_menu_item_image_field'), 10, 4);
         add_action('wp_update_nav_menu_item', array($this, 'save_menu_item_image_field'), 10, 3 );
         add_filter('walker_nav_menu_start_el', array($this, 'render_menu_item_image'), 10, 4);
+        add_filter('upload_mimes', array($this, 'cc_mime_types'));
     }
     
     // Enqueue necessary scripts and styles for media uploader
@@ -48,6 +49,12 @@ class dwdAdminFunctions {
             $item_output = '<a target="_blank" href="' . $item->url . '">' . '<img src="' . esc_url( $image_url ) . '" alt="' . $item->title . ' icon">' . '</a>';
         }
         return $item_output;
+    }
+
+    // Allow SVG uploads
+    public function cc_mime_types($mimes) {
+        $mimes['svg'] = 'image/svg+xml';
+        return $mimes;
     }
 }
 
