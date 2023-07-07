@@ -44,6 +44,5 @@ add_action( 'block_categories_all', 'dwd_blocks_portfolio_cateogry', 10, 2 );
 
 function create_block_dwd_blocks_block_init() {
 	register_block_type( __DIR__ . '/build/project-link' );
-    register_block_type( __DIR__ . '/build/blockb' );
 }
 add_action( 'init', 'create_block_dwd_blocks_block_init' );

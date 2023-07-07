@@ -10,7 +10,7 @@ export default function save( props ) {
 
     return (
         <div {...blockProps}>
-            <div className="'project-link container d-flex flex-column flex-justify-around wp-block">
+            <div className="project-link container d-flex flex-column flex-justify-around wp-block">
                 <div className="project-link-heading row">
                     <div className="project-link-heading-title col-12 col-sm-8">
                         <RichText.Content className="title" tagName="h2" value={ title } />
@@ -31,7 +31,7 @@ export default function save( props ) {
                         <RichText.Content className="text-description" tagName="p" value={ textDescription } />
                     </div>
                     <div className="project-link-body-cta col-12 col-sm-4 d-flex flex-justify-end flex-align-end">
-                        <a href={ link }>{ linkTitle }</a>
+                        <a className="btn btn-primary" href={ link }>{ linkTitle }</a>
                     </div>
                 </div>
             </div>
