@@ -1,15 +1,32 @@
 import { __ } from '@wordpress/i18n';
 import './editor.scss';
+import React, { useEffect, useState } from 'react';
 import { RichText, MediaUpload, URLInput, useBlockProps } from '@wordpress/block-editor';
 import { Button } from '@wordpress/components';
 
 export default function Edit( props )  {
     const blockProps = useBlockProps();
+    const [tags, setTags] = useState([]);
 
     const { 
         attributes: { title, logoID, logoURL, ftImgID, ftImgURL, textDescription, link, linkTitle },
 		setAttributes,
     } = props;
+
+    useEffect(() => {
+        const fetchTags = async () => {
+            try {
+                const response = await fetch('/wp-json/wp/v2/tags?post=1631');
+                const data = await response.json();
+                setTags(data);
+                console.log(data);
+            } catch (error) {
+                console.error('Error fetching tags:', error);
+            }
+        };
+
+        fetchTags();
+    }, []);
 
     const onTitleChange = (newTitle) => {
         setAttributes({ title: newTitle });
@@ -48,6 +65,17 @@ export default function Edit( props )  {
 
             <div className="project-link container d-flex flex-column flex-justify-around wp-block">
                 <div className="project-link-heading row">
+                    <div className="project-link-heading-tags col-12">
+                    <h2>Available Tags</h2>
+                        <ul>
+                            {tags.map((tag) => (
+                            <li key={tag.id}>
+                                <input type="checkbox" id={`tag-${tag.id}`} value={tag.id} />
+                                <label htmlFor={`tag-${tag.id}`}>{tag.name}</label>
+                            </li>
+                            ))}
+                        </ul>
+                    </div>
                     <div className="project-link-heading-title col-12 col-sm-8">
                         <RichText
                             tagName="h2" 

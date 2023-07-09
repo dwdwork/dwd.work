@@ -15,6 +15,7 @@ class dwdAdminFunctions {
         add_action('wp_update_nav_menu_item', array($this, 'save_menu_item_image_field'), 10, 3 );
         add_filter('walker_nav_menu_start_el', array($this, 'render_menu_item_image'), 10, 4);
         add_filter('upload_mimes', array($this, 'cc_mime_types'));
+        add_action('init', array($this, 'add_categories_and_tags_to_pages'));
     }
     
     // Enqueue necessary scripts and styles for media uploader
@@ -56,6 +57,16 @@ class dwdAdminFunctions {
         $mimes['svg'] = 'image/svg+xml';
         return $mimes;
     }
+
+    // Add categories and tags to pages
+    public function add_categories_and_tags_to_pages() {
+        // Enable categories for pages
+        register_taxonomy_for_object_type('category', 'page');
+
+        // Enable tags for pages
+        register_taxonomy_for_object_type('post_tag', 'page');
+    }
+    
 }
 
 new dwdAdminFunctions();
