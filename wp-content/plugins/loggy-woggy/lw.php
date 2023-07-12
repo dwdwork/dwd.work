@@ -1,6 +1,6 @@
 <?php
 /**
- *  Plugin Name: Loggy Woggys
+ *  Plugin Name: Loggy Woggy App
  *  Version: 1.0.0
  *  Author: danwilderdesign
  *  Description: So you two uhm, hm. Dig up, dig up dinosaurs? Hahahrawrrahaha
@@ -11,9 +11,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-if ( ! class_exists( 'LoggyWoggy' ) ) {
+if ( ! class_exists( 'LW' ) ) {
 
-    class LoggyWoggy {
+    class LW {
         private static $instance;
 
         private function __construct() {
