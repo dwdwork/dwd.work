@@ -8,8 +8,6 @@ window.onload = function() {
     const registerInputs = document.getElementById('register-inputs');
     const revealLogin = document.getElementById('reveal-login');
     const loginInputs = document.getElementById('login-inputs');
-    console.log(revealLogin);
-    console.log(revealLogin);
 
     if(revealRegister != null || revealRegister != 'undefined') {
         revealRegister.addEventListener('click', () => {
