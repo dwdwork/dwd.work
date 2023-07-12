@@ -1,11 +1,16 @@
 <?php 
 /**
- * User logout
+ * Leave the app
  */
 
-session_start();
-session_destroy();
-header('Location: index.php');
-exit;
 
+// Clear all session variables
+$_SESSION = array();
+
+// Destroy the session
+session_destroy();
+
+// Redirect the user to the login page
+header("Location: ../src/register.html");
+exit();
 ?>

@@ -1,0 +1,230 @@
+/* Basic styles */
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: "Helvetica", sans-serif;
+    background-image: linear-gradient(135deg, #7f0d0d, #5c0707);
+    background-repeat: no-repeat;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+/* Register form styles */
+#loggy-woggy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    padding: .5rem;
+}
+
+#loggy-woggy-dashboard {
+    display: flex;
+    flex-direction: column;
+    width: 95vw;
+    height: 95vh;
+    padding: .5rem;
+}
+
+#loggy-woggy h1 {
+    width: 100%;
+    text-align: center;
+    margin: 3rem auto 2rem auto;
+    color: white;
+}
+
+#loggy-woggy a {
+    color: #fed319;
+}
+
+#loggy-woggy .register-form {
+    display: block;
+    width: 600px;
+    max-height: 100%;
+    border-radius: .75rem;
+    box-shadow: 4px 4px 18px 4px rgba(0, 0, 0, 0.35);
+}
+
+#loggy-woggy .dashboard-form {
+    display: block;
+    border-radius: .75rem;
+    box-shadow: 4px 4px 18px 4px rgba(0, 0, 0, 0.35);
+}
+
+#loggy-woggy .dashboard-form .profile-logout {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#loggy-woggy .register-form .logo {
+    margin: -20% auto 0 auto;
+}
+
+#loggy-woggy .dashboard-form .logo {
+    margin: -5% auto 0 -5%;
+}
+
+#loggy-woggy .dashboard-form .logo {
+    max-width: 250px;
+}
+
+#loggy-woggy .logo-image {
+    padding: .5rem;
+    border-radius: 500px;
+}
+
+#loggy-woggy .logo-image .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+    margin: auto;
+    border-radius: 500px;
+}
+
+#loggy-woggy .dashboard-form .logo-image .image {
+    max-width: 250px;
+}
+
+#loggy-woggy .logo-text {
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+#loggy-woggy .register-form .logo-text {
+    margin: -15% auto 0 auto;
+}
+
+#loggy-woggy .dashboard-form .logo-text {
+    margin: -5% -5% 0 auto;
+    max-height: 250px;
+}
+
+#loggy-woggy .logo-text-image {
+    padding: .5rem;
+    border-radius: .35rem;
+}
+
+#loggy-woggy .register-choices {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    min-height: 250px;
+}
+
+#loggy-woggy button {
+    display: inline-block;
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+    width: 80%;
+    padding: 1rem 0.5rem;
+    border: 3px solid white;
+    border-radius: 8px;
+    background-color: transparent;
+}
+
+#loggy-woggy button#reveal-login {
+    color: #1e1e1e;
+    background-color: white;
+}
+
+#loggy-woggy button:first-child {
+    margin-bottom: 3rem;
+}
+
+#loggy-woggy .register-choices {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    min-height: 250px;
+}
+
+#loggy-woggy .register-inputs, #loggy-woggy .login-inputs, #loggy-woggy .dashboard-inputs {
+    color: white;
+    min-height: 300px;
+}
+
+#loggy-woggy .register-inputs form, #loggy-woggy .login-inputs form, #loggy-woggy .dashboard-inputs form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: 2rem 0 4rem 0;
+}
+
+#loggy-woggy .register-inputs form, #loggy-woggy .login-inputs form {
+    height: 100%;
+}
+
+#loggy-woggy .register-inputs form .col, #loggy-woggy .login-inputs form .col, #loggy-woggy .dashboard-inputs form .col {
+    display: flex;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    flex-basis: unset;
+}
+
+#loggy-woggy .register-inputs form .col, #loggy-woggy .login-inputs form .col {
+    align-items: center;
+}
+
+#loggy-woggy .register-inputs form .col input, #loggy-woggy .login-inputs form .col input, #loggy-woggy .dashboard-inputs form .col input, #loggy-woggy .dashboard-inputs form .col textarea {
+    padding: .75rem 1.25rem;
+    border-radius: .25rem;
+}
+
+#loggy-woggy .dashboard-inputs form .col input, #loggy-woggy .dashboard-inputs form .col textarea {
+    width: 100%;
+}
+
+#loggy-woggy .dashboard-inputs form .col textarea {
+    min-height: 100px;
+}
+
+#loggy-woggy .register-inputs form .col.submit input, #loggy-woggy .login-inputs form .col.submit input, #loggy-woggy .dashboard-inputs form .col.submit input {
+    font-size: 1.5rem;
+    color: white;
+    border-radius: .5rem;
+    border: 3px solid white;
+    background-color: transparent;
+}
+
+#loggy-woggy .register-inputs form .col.submit input:hover, #loggy-woggy .login-inputs form .col.submit input:hover, #loggy-woggy .dashboard-inputs form .col.submit input:hover {
+    cursor: pointer;
+}
+#loggy-woggy .dashboard-inputs label {
+    font-weight: 700;
+}
+
+#loggy-woggy .dashboard-inputs form .row {
+    width: 100%;
+}
+
+#loggy-woggy .dashboard-inputs p {
+    font-size: 1rem;
+}
+
+/* Utility classes */
+#loggy-woggy .col-14 {
+    max-width: unset !important;
+    width: 115%;
+    margin-left: calc(15% / -2) !important;
+}
+
+.yellow-bg {
+    background-color: #fed319;
+}
+
+.gray-bg {
+    background-color: #1e1e1e;
+}
