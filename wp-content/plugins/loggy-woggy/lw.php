@@ -5,7 +5,31 @@
  *  Author: danwilderdesign
  *  Description: So you two uhm, hm. Dig up, dig up dinosaurs? Hahahrawrrahaha
  */
+?>
+<script>
+    const axios = require('axios');
 
+const fetchData = async () => {
+  const options = {
+    method: 'GET',
+    url: 'https://nfl-team-stats.p.rapidapi.com/v1/nfl-stats/teams/receiving-stats/offense/2019',
+    headers: {
+      'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY',
+      'X-RapidAPI-Host': 'nfl-team-stats.p.rapidapi.com'
+    }
+  };
+
+  try {
+    const response = await axios.request(options);
+    console.log(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+fetchData();
+</script>
+<?php
 // Exit if accessed directly.
 if (!defined('ABSPATH')) {
     exit;
