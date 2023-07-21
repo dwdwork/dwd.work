@@ -2,7 +2,11 @@
 /**
  * The template for displaying all single pages
  */
-
+?>
+<div class="link-to-plugin" style="position: fixed; top: 0; left: 0; right: 0; height: 100px; background: #666666; display: flex; justify-content: center; align-items: center; z-index:9999;">
+    <a href="/wp-content/plugins/loggy-woggy/inc/dashboard.php">GO TO DASHBOARD</a>
+</div>
+<?php
 get_header(); 
 
     /* Page Content */

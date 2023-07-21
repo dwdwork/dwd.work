@@ -1,46 +1,162 @@
 /**
  * JS for clever girl plugin
  */
+ 
+function basicAPIFetchForPlayers() {
+    const options = {
+        method: 'GET',
+        url: 'https://api-american-football.p.rapidapi.com/players/statistics',
+        params: {
+          season: '2022',
+          id: '1'
+        },
+        headers: {
+          'X-RapidAPI-Key': 'da99e3fdc2msh758b1c38a83fdafp139db3jsn6ec58dd6378c',
+          'X-RapidAPI-Host': 'api-american-football.p.rapidapi.com'
+        }
+      };
+      
+      // Function to convert params object to URL-encoded string
+    const encodeParams = (params) => {
+        return Object.entries(params)
+        .map(([key, value]) => encodeURIComponent(key) + '=' + encodeURIComponent(value))
+        .join('&');
+    };
+      
+      try {
+        const queryParams = encodeParams(options.params);
+        const urlWithParams = `${options.url}?${queryParams}`;
+        
+        fetch(urlWithParams, {
+            method: options.method,
+            headers: options.headers
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data.response[0].player.name);
+            console.log(data.response[0].teams[0].groups[0].statistics);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+// basicAPIFetchForPlayers();
 
 function calculateNFLGame() {
-    console.log('==== NFL GAME ====');
-    
-    const teams = 2;
-    var possessions = 12;
-    var fieldLength = 100;
-    var runPlay = false;
-    var passPlay = false;
-    var totalYards = 0;
-    var totalYardsPerPossession = 0;
-    var totalYardsPerSetOfDowns = 0;
-    var totalTDs = 0;
-    var totalFGs = 0;
-    var totalPasses = 0;
-    var totalRuns = 0;
-    var teamAStats = {
-        runs: '',
-        runYards: '',
-        passes: '',
-        passYards: '',
-        touchDowns: '',
-        fieldGoals: '',
-        punts: ''
-    };
-    var teamBStats = {
-        runs: '',
-        runYards: '',
-        passes: '',
-        passYards: '',
-        touchDowns: '',
-        fieldGoals: '',
-        punts: ''
-    };
-    var gameResults = {
-        teamA: teamAStats,
-        teamB: teamBStats
-    };
+    console.log('====================================');
+    console.log('\n');
+    console.log('         +++ NFL SIMULATOR +++        ');
+    console.log('\n');
+    console.log('====================================');
+    const resultsDisplay = document.getElementById('game-results');
 
-    function generateYards(mean) {
+    // Team names mapped into retrievalable object
+    let teams = {
+        'Arizona Cardinals': 'ARZC',
+        'Atlanta Falcons': 'ATLF',
+        'Baltimore Ravens': 'BLTR',
+        'Buffalo Bills': 'BFBL',
+        'Carolina Panthers': 'CARP',
+        'Chicago Bears': 'CHBR',
+        'Cincinnati Bengals': 'CINB',
+        'Cleveland Browns': 'CLVB',
+        'Dallas Cowboys': 'DALC',
+        'Denver Broncos': 'DNVB',
+        'Detroit Lions': 'DTLN',
+        'Green Bay Packers': 'GBPK',
+        'Houston Texans': 'HOUT',
+        'Indiannapolis Colts': 'INDC',
+        'Jaksonville Jaguars': 'JXVJ',
+        'Kansas City Chiefs': 'KSCC',
+        'Los Angeles Chargers': 'LACH',
+        'Los Angeles Rams': 'LARM',
+        'Las Vegas Raiders': 'LVRD',
+        'Miami Dolphins': 'MIAD',
+        'Minnesota Vikings': 'MNVK',
+        'New England Patriots': 'NEPT',
+        'New Orleans Saints': 'NOST',
+        'New York Giants': 'NYGN',
+        'New York Jets': 'NYJT',
+        'Philadelphia Eagles': 'PHEA',
+        'Pittsburgh Steelers': 'PTST',
+        'San Francisco 49ers': 'SF49',
+        'Seattle Seahawks': 'SEAS',
+        'Tampa Bay Buccaneers': 'TBBC',
+        'Tennessee Titans': 'TNTN',
+        'Washington Commanders': 'WSCM'
+    }
+
+    // Turnover differential mapped into retrievalable object
+    let turnoverMap = {
+        ARZC:   -0.3,
+        ATLF:   -0.2,
+        BLTR:   0.2,
+        BFBL:   -0.1,
+        CARP:   -0.2,
+        CHBR:   -0.1,
+        CINB:   0.4,
+        CLVB:   -0.1,
+        DALC:   0.5,
+        DNVB:   -0.1,
+        DTLN:   0.4,
+        GBPK:   0.1,
+        HOUT:   -0.1,
+        INDC:   -0.8,
+        JXVJ:   -0.1,
+        KSCC:   0.1,
+        LACH:   0.6,
+        LARM:   -0.1,
+        LVRD:   -0.5,
+        MIAD:   -0.3,
+        MNVK:   0.1,
+        NEPT:   0.4,
+        NOST:   -0.6,
+        NYGN:   0.1,
+        NYJT:   -0.4,
+        PHEA:   0.6,
+        PTST:   0.2,
+        SF49:   0.7,
+        SEAS:   0.0,
+        TBBC:   -0.2,
+        TNTN:   -0.2,
+        WSCM:   -0.3
+    }
+
+    function getTeamAbbr(teamName) {
+
+        // Check if the parameter is found in the teams obj
+        if (teams.hasOwnProperty(teamName)) {
+            return teams[teamName];
+        } else {
+            return 'No team found';
+        }
+    }
+
+    function getTeamTurnoverMargin(teamName) {
+
+        // Get the mapped abbreviation
+        let team = getTeamAbbr(teamName);
+
+        // Check if the parameter is found in the turnoverMap obj
+        if (turnoverMap.hasOwnProperty(team)) {
+            let margin = turnoverMap[team];
+            return margin;
+        } else {
+            return 'No team found';
+        }
+    }
+
+    // Helper function to generate yards for different scenarios
+    function generateYards(mean, deviation) {
+
         // Generate two random values between 0 and 1
         const r1 = Math.random();
         const r2 = Math.random();
@@ -48,8 +164,8 @@ function calculateNFLGame() {
         // Use the Box-Muller transform to convert the two random values into a single value
         const y = Math.sqrt(-2 * Math.log(r1)) * Math.cos(2 * Math.PI * r2);
 
-        // Scale and shift the value to the desired range
-        const rYards = mean + 4 * y;
+        // Scale and shift the value (adjusted per type of play)
+        const rYards = mean + deviation * y;
         const yards = rYards <= 0 ? rYards * -1 : rYards;
 
         // Round the value to the nearest whole number
@@ -57,456 +173,429 @@ function calculateNFLGame() {
     }
 
     function callRunPlay() {
-        var averageYPC = 4;
-        var successTest = Math.random();
+        let averageYPC = 3;
+        let averageDeviation = 4;
+        var yards = 0;
+        var message = '';
 
-        // Check if the random number falls within the range
-        if (successTest <= 0.55) {
-            var yardsGained = generateYards(averageYPC);
-            console.log('Ran ' + generateYards(averageYPC) + ' yards \n');
-            return yardsGained;
+        // Run plays are completed 55% of the time on average
+        if (Math.random() * 100 <= 55) {
+            yards = generateYards(averageYPC, averageDeviation);
+            message = 'Ran ' + yards + ' yards';
         } else {
-            console.log('No Gain \n');
-            return false;
+            message = 'No Gain';
         }
+
+        return {
+            yards,
+            message
+        };
     } 
-    // callRunPlay();
 
     function callPassPlay() {
-        var averageYPR = 8;
-        var successTest = Math.random();
 
-        // Check if the random number falls within the range
-        if (successTest <= 0.65) {
-            var yardsGained = generateYards(averageYPR);
-            console.log('Passed ' + generateYards(averageYPR) + ' yards \n');
-            return yardsGained;
+        // Declare variables to return
+        let averageYPR = 5;
+        let averageDeviation = 6;
+        var yards = 0;
+        var message = '';
+
+        // Pass plays are completed 65% of the time on average
+        if (Math.random() * 100 <= 65) {
+            yards = generateYards(averageYPR, averageDeviation);
+            message = 'Passed ' + yards + ' yards';
         } else {
-            console.log('Pass Incomplete \n');
-            return false;
+            message = 'Pass Incomplete';
         }
-    } 
-    // callPassPlay();
 
-    function simulateSetOfDowns() {
-        var sum = 0;
-        var attempts = 0;
-        var yardsRemaining = 0;
-      
-        while (attempts < 4) {
-            // Generate a random number between 0 and 10
-            const randomNumber = Math.random() * 5;
-        
-            // Add the random number to the sum
-            sum += randomNumber;
-        
-            // Check if the sum is greater than 10
-            if (sum > 10) {
-                console.log(`First Down! Total yards gained: ${sum.toFixed(2)}`);
-            return; // End the function for a 1st down
-            } else {
-                console.log(`Yards gained on this play: ${randomNumber.toFixed(2)}`);
-            }
-      
-          attempts++;
-        }
-      
-        console.log(`No touchdown this drive. Total yards gained: ${sum.toFixed(2)}`);
-    } 
-    // simulateSetOfDowns();
-
-    function run(totalYards, totalRuns, totalYardsPerSetOfDowns, totalTDs, score) {
-        let results = {
-            yardsGained,
-            firstDown
+        return {
+            yards,
+            message
         };
-        if(Math.floor(Math.random() * 100) + 1 <= 60) {
-            // Generate a random number for yards gained in run play
-            console.log('Successful Run!');
-            let yardsGainedOnPlay = Math.floor(Math.random() * 4) + 1;
-            yardsGainedOnPlay += yardsGainedOnPlay;
-            totalYardsPerSetOfDowns += yardsGainedOnPlay;
-            totalYards += yardsGainedOnPlay;
-            totalRuns++;
-            runResults.push(yardsGainedOnPlay, totalRuns, totalYardsPerSetOfDowns);
-            console.log('            Ran for: ' + yardsGainedOnPlay + ' yards\n');
-            if(totalYards >= 100) {
-                yardsGainedOnPlay = 0;
-                totalTDs += 1;
-                totalYards = 20;
-                score = true;
-                runResults.push(totalTDs, score);
-            }
-            if(totalYardsPerSetOfDowns > 10) {
-                yardsGainedOnPlay = 0;
-                console.log('            1st Down!\n');
-            }
-            return runResults;
+    } 
+
+    function kickPunt(yardsToGoal) {
+
+        // Declare variables to return
+        let averageDeviation = 10;
+        var yards = yardsToGoal > 80 ? generateYards(65, averageDeviation) : generateYards(45, averageDeviation);
+        var message = '';
+
+        if(yardsToGoal > 80) {
+            yards = generateYards(65, averageDeviation);
+        }
+        if(yards >= yardsToGoal) {
+            yardsToGoal = 80;
+            message = 'Touchback. Opponent starts at their own 20';
         } else {
-            console.log('Run failed.');
-            return false;
+            yardsToGoal = 100 - (yardsToGoal - yards);
+            message = 'Punted for ' + yards + ' yards. Opponent\'s start with ' + yardsToGoal + ' yards to their goal.';
+        }
+
+        return {
+            yards,
+            message,
+            yardsToGoal
         }
     }
-      
-    function pass() {
-        // Generate a random number for yards gained in pass play with an average of 4.43
-        let yardsGainedOnPlay = Math.floor(Math.random() * 9) + 1;
-        yardsGainedOnPlay += yardsGainedOnPlay;
-        totalYards += yardsGainedOnPlay;
-        totalPasses++;
-        if(yardsGainedOnPlay > 10) {
-            yardsGainedOnPlay = 0; // Maintain the total yards gained
-            return true; // Indicates that the index needs to be reset
-        }
-        if(totalYards >= 100) {
-            yardsGainedOnPlay = 0; // Maintain the total yards gained
-            totalTDs += 1;
-            return true; // Indicates that the index needs to be reset
-        }
-        return false;
-    }
 
+    function kickFieldGoal(yardsToGoal) {
 
-    function punt() {
-        const yardsPunted = Math.floor(Math.random() * 45) + 1;
-        if(yardsPunted > yardsRemaining) {
-            totalYards = 20;
+        // Declare variables to return
+        let attemptYards = yardsToGoal + 10;
+        var message = attemptYards + ' yard attempt.';
+        var success = false;
+
+        // Success % affected by kick distance
+        if(yardsToGoal < 9) {
+            success = Math.random() * 100 < 99 ? true : false;
+        } else if(yardsToGoal >= 9 && yardsToGoal < 19) {
+            success = Math.random() * 100 < 97 ? true : false;
+        } else if(yardsToGoal >= 19 && yardsToGoal < 29) {
+            success = Math.random() * 100 < 90 ? true : false;
+        } else if(yardsToGoal >= 29 && yardsToGoal < 39) {
+            success = Math.random() * 100 < 80 ? true : false;
+        } else if(yardsToGoal >= 39 && yardsToGoal < 49) {
+            success = Math.random() * 100 < 65 ? true : false;
         } else {
-            totalYards = 100 - (yardsPunted + yardsRemaining);
+            success = Math.random() * 100 < 45 ? true : false;
         }
+
+        // Update returns
+        if(success === true) {
+            message += ' It\'s good!';
+            yardsToGoal = 80;
+        } else {
+            yardsToGoal = 100 - yardsToGoal;
+            message += ' Missed! Turnover on downs';
+        }
+
+        return {
+            success,
+            message,
+            yardsToGoal
+        };
     }
 
-    function fieldGoal() {
-        let fieldGoalLength = yardsRemaining + 10;
-        if(fieldGoalLength <= 29) {
-            const successRate = Math.floor(Math.random() * 97) + 1;
-            if(successRate <= 97) {
-                scored = true;
-                totalYards = 20;
-                totalFGs += totalFGs;
+    function decidePlay(currentDown, yardsToFirst, yardsToGoal) {
+
+        // Declare variables to return
+        currentDown++;
+        var downType = '';
+        var yards = 0;
+        var playType = '';
+        var play = null;
+
+        // Update play call according to current down
+        if(currentDown === 4) {
+            downType = '4th Down';
+            if(yardsToGoal < 55) {
+                play = kickFieldGoal(yardsToGoal);
+                playType = 'Field Goal';
             } else {
-                scored = false;
-                totalYards = 100 - totalYards;
+                play = kickPunt(yardsToGoal);
+                playType = 'Punt';
+                yardsToGoal = play.yardsToGoal;
             }
-        } else if(fieldGoalLength > 29 && fieldGoalLength <= 39) {
-            const successRate = Math.floor(Math.random() * 90) + 1;
-            if(successRate <= 97) {
-                scored = true;
-                totalYards = 20;
-                totalFGs += totalFGs;
-                totalYards = 100 - totalYards;
+        } else if(currentDown === 3) {
+            downType = '3rd Down';
+            if(yardsToFirst < 2) {
+                if(Math.random() * 100 < 80) {
+                    play = callRunPlay();
+                    playType = 'Run';
+                } else {
+                    play = callPassPlay();
+                    playType = 'Pass';
+                }
+            } else {
+                if(Math.random() * 100 < 40) {
+                    play = callRunPlay();
+                    playType = 'Run';
+                } else {
+                    playType = 'Pass';
+                    play = callPassPlay();
+                }
             }
-        } else if(fieldGoalLength > 39 && fieldGoalLength <= 49) {
-            const successRate = Math.floor(Math.random() * 75) + 1;
-            if(successRate <= 97) {
-                scored = true;
-                totalYards = 20;
-                totalFGs += totalFGs;
-                totalYards = 100 - totalYards;
+        } else {
+            if(currentDown === 2) {
+                downType = '2nd Down';
+            } else if(currentDown === 1) {
+                downType = '1st Down';
             }
-        } else if(fieldGoalLength > 49 && fieldGoalLength <= 59) {
-            const successRate = Math.floor(Math.random() * 65) + 1;
-            if(successRate <= 97) {
-                scored = true;
-                totalYards = 20;
-                totalFGs += totalFGs;
-                totalYards = 100 - totalYards;
-            }
-        } else if(fieldGoalLength > 59 && fieldGoalLength <= 69) {
-            const successRate = Math.floor(Math.random() * 45) + 1;
-            if(successRate <= 97) {
-                scored = true;
-                totalYards = 20;
-                totalFGs += totalFGs;
-                totalYards = 100 - totalYards;
+            if(Math.random() * 100 < 45) {
+                play = callRunPlay();
+                playType = 'Run';
+            } else {
+                play = callPassPlay();
+                playType = 'Pass';
             }
         }
-        return;
+
+        // Update returns
+        if(playType === 'Punt') {
+            yards = play.yards;
+        } else {
+            yards = playType != 'Field Goal' ? play.yards : 0;
+        }
+
+        return {
+            downType,
+            yards,
+            playType,
+            play
+        };
     }
 
-    function setOfDowns() {
+    function simulatePossession(yardsToGoal) {
+        
+        // Declare variables to return
+        var down = 0;
+        var message = '';
+        var totalPlays = 0;
+        var yardsGained = 0;
+        var yardsToGoalStartingPossession = yardsToGoal;
+        
+        // Declare variables for overall possessoion
+        var possession = {
+            punt: false,
+            td: false,
+            fg: false,
+            playsCalled: [],
+        }
 
-        for(var d = 0; d < 4; d++) {
-            let playCall = Math.floor(Math.radom() * 100) + 1;
+        // Declare set of downs outside of while loop
+        var setOfDowns = {
+            playsCalled: [],
+            yardsToFirst: 10,
+            yardsGained: 0,
+        }
 
-            if(playCall < 53) {
-                let playResult = callRunPlay();
-                if(playResult) {
-                    
+        // Run a repeatable function to simulate 4 downs 
+        while (down < 4 && possession.td != true && possession.fg != true && possession.punt != true) {
+
+            // While looping, push plays to setOfDowns.playsCalled 
+            let currentPlay = decidePlay(down, setOfDowns.yardsToFirst, yardsToGoal); 
+            setOfDowns.playsCalled.push(currentPlay);
+            possession.playsCalled.push(currentPlay);
+
+            // Update yards gained if play is run or pass
+            if(currentPlay.playType === 'Run' || currentPlay.playType === 'Pass') {
+                
+                // Update for setOfDowns
+                setOfDowns.yardsGained += currentPlay.play.yards;
+                setOfDowns.yardsToFirst = 10 - setOfDowns.yardsGained;
+
+                // Update for possession
+                totalPlays++;
+                yardsGained += currentPlay.play.yards;
+                yardsToGoal = yardsToGoal - currentPlay.play.yards;
+            }
+
+            // Check for first down
+            if(setOfDowns.yardsToFirst <= 0) {
+                down = 0;
+                setOfDowns.yardsGained = 0;
+                setOfDowns.yardsToFirst = 10;
+            } else {                
+                down++;
+            }
+
+            // Check for change of possession
+            possession.punt = currentPlay.playType === 'Punt' ? true : false;
+            possession.fg = currentPlay.playType === 'Field Goal' && currentPlay.play.success === true ? true : false;
+            possession.td = possession.punt != true && possession.fg != true && yardsToGoal < 0 ? true : false;
+        }
+
+        // Set variable to get results of last play
+        let lastPlay = possession.playsCalled[possession.playsCalled.length - 1];
+
+        // Update returns
+        if(possession.td == false && possession.fg === false && possession.punt === false) {
+            message = 'Turnover on Downs';
+            yardsToGoal = 100 - lastPlay.play.yardsToGoal;
+        } else {
+            if(possession.td == true) {
+                message = 'Touchdown!';
+                yardsToGoal = 80;
+            } 
+            if(possession.fg === true) {
+                message = 'Field Goal!';
+                yardsToGoal = 80;
+            }
+            if(possession.punt === true) {
+                message = 'Punt';
+                yardsToGoal = lastPlay.play.yardsToGoal;
+            }
+        }
+
+        return {
+            yardsToGoalStartingPossession,
+            message,
+            yardsGained,
+            yardsToGoal,
+            possession,
+        };        
+    } 
+
+    function simulateGame(possessions) {
+
+        // Set yardsToGoal variable used for each team's possession
+        let yardsToGoal = 0;
+
+        // Set variables to hold stats for each team
+        var allPossessions = [];
+        var teamAPossessions = [];
+        var teamBPossessions = [];
+        var teamAStats = {
+            tds: 0,
+            fgs: 0,
+            score: 0,
+            totalPlays: 0,
+            totalYards: 0,
+            totalRunningYards: 0,
+            totalPassingYards: 0,
+            averageYPC: 0,
+            averageYPCmp: 0,
+            averageYPP: 0,
+            possessions: teamAPossessions
+        };
+        var teamBStats = {
+            tds: 0,
+            fgs: 0,
+            score: 0,
+            totalPlays: 0,
+            totalYards: 0,
+            totalRunningYards: 0,
+            totalPassingYards: 0,
+            averageYPC: 0,
+            averageYPCmp: 0,
+            averageYPP: 0,
+            possessions: teamBPossessions
+        };
+        var game = {
+            winner: '',
+            teamAStats: teamAStats,
+            teamBStats: teamBStats
+        }
+
+        // Run the simulations and add possessions to separate array
+        for(let i = 0; i < possessions; i++) {
+            
+            // Set yardsToGoal as 80 for kickoffs
+            if(i === 0 || i === 13) {
+                yardsToGoal = 80;
+            } else {
+                yardsToGoal = allPossessions[i - 1].yardsToGoal;
+            }
+
+            allPossessions.push(simulatePossession(yardsToGoal));
+        }
+
+        // Add stats to each team
+        for(let i = 0; i < allPossessions.length; i++) {
+            // console.log(allPossessions[i].possession.playsCalled.length);
+            if(i % 2 === 0) {
+                teamAPossessions.push(allPossessions[i]);
+                teamAStats.totalYards += allPossessions[i].yardsGained;
+                teamAStats.totalPlays += allPossessions[i].possession.playsCalled.length;
+
+                if(allPossessions[i].message === 'Touchdown!') {
+                    teamAStats.tds++;
+                } else if(allPossessions[i].message === 'Field Goal!') {
+                    teamAStats.fgs++;
+                }   
+            } else {
+                teamBPossessions.push(allPossessions[i]);
+                teamBStats.totalYards += allPossessions[i].yardsGained;
+                teamBStats.totalPlays += allPossessions[i].possession.playsCalled.length;
+
+                if(allPossessions[i].message === 'Touchdown!') {
+                    teamBStats.tds++;
+                } else if(allPossessions[i].message === 'Field Goal!') {
+                    teamBStats.fgs++;
                 }
             }
         }
-    }
-    
-    // for(let p = 0; p < possessions; p++) {
-    //     let score = false;
-    //     let turnover = false;
-    //     let possesion = p + 1;
-    //     if(p == 0) {
-    //         totalYards = 20;
-    //     }
-    //     let yardsRemaining = 100 - totalYards;
-    //     console.log('   ---- Possession: ' + possesion + ' ---- \n');
-    //     console.log('      Starting Possesion at: ' + yardsRemaining + ' yard line.     \n');
 
-    //     while(score == false || turnover == false) {
-    //         for(let d = 0; d < 4; d++) {
-    //             let totalYardsPerSetOfDowns = 0;
-    //             let currentDown = d + 1;
-    //             let result = false;
-    //             console.log('        Down: ' + currentDown + '      \n');
-    //             const decidePlay = Math.floor(Math.random() * 100) + 1;
+        // Update scores
+        teamAStats.score = (teamAStats.tds * 7) + (teamAStats.fgs * 3);
+        teamAStats.averageYPP = Math.round((teamAStats.totalYards / teamAStats.totalPlays) * 10) / 10;
+        teamBStats.score = (teamBStats.tds * 7) + (teamBStats.fgs * 3);
+        teamBStats.averageYPP = Math.round((teamBStats.totalYards / teamBStats.totalPlays) * 10) / 10;
 
-    //             if(d == 4) {
-    //                 if(totalYards >= 55) {
-    //                     result = fieldGoal();
-    //                     if(result == true) {
-    //                         score = true;
-    //                         break;
-    //                     } else {
-    //                         turnover = true;
-    //                         break;
-    //                     }
-    //                 } else {
-    //                     result = punt();
-    //                     turnover = true;
-    //                     break;
-    //                 }
-    //             } else {
-    //                 if(decidePlay <= 53) {
-                        
-    //                 } else {
-    //                     // Generate a random number for yards gained in pass play with an average of 4.43
-    //                     let yardsGainedOnPlay = Math.floor(Math.random() * 9) + 1;
-    //                     yardsGainedOnPlay += yardsGainedOnPlay;
-    //                     totalYards += yardsGainedOnPlay;
-    //                     totalYardsPerSetOfDowns += yardsGainedOnPlay;
-    //                     totalPasses++;
-    //                     console.log('            Passed for: ' + yardsGainedOnPlay + ' yards\n');
-    //                     if(totalYards >= 100) {
-    //                         yardsGainedOnPlay = 0;
-    //                         totalTDs += 1;
-    //                         score = true;
-    //                         console.log('            TOUCHDOWN!!!\n');
-    //                         break;
-    //                     }
-    //                     if(totalYardsPerSetOfDowns > 10) {
-    //                         yardsGainedOnPlay = 0;
-    //                         console.log('            1st Down!\n');
-    //                         break;
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
+        console.log('\n-- Team A --' + 
+            '\nTotal Yards: ' + teamAStats.totalYards +
+            '\nAverage Yards per Play: ' + teamAStats.averageYPP +
+            '\nTouchdowns: ' + teamAStats.tds + 
+            '\nField Goals: ' + teamAStats.fgs + 
+            '\nFinal Score: ' + teamAStats.score);
 
-    //     for(let d = 0; d < 4; d++) {
-    //         let totalYardsPerSetOfDowns = 0;
-    //         let currentDown = d + 1;
-    //         console.log('        Down: ' + currentDown + '      \n');
-    //         const decidePlay = Math.floor(Math.random() * 100) + 1;
-            
-    //         if(totalYards >= 55) {
-    //             if(d === 4) {
-    //                 if(p < 10) {
-    //                     let fieldGoalLength = yardsRemaining + 10;
-    //                     if(fieldGoalLength <= 29) {
-    //                         const successRate = Math.floor(Math.random() * 97) + 1;
-    //                         if(successRate <= 97) {
-    //                             scored = true;
-    //                             totalYards = 20;
-    //                             totalFGs += totalFGs;
-    //                         } else {
-    //                             scored = false;
-    //                             totalYards = 100 - totalYards;
-    //                         }
-    //                     } else if(fieldGoalLength > 29 && fieldGoalLength <= 39) {
-    //                         const successRate = Math.floor(Math.random() * 90) + 1;
-    //                         if(successRate <= 97) {
-    //                             scored = true;
-    //                             totalYards = 20;
-    //                             totalFGs += totalFGs;
-    //                             totalYards = 100 - totalYards;
-    //                         }
-    //                     } else if(fieldGoalLength > 39 && fieldGoalLength <= 49) {
-    //                         const successRate = Math.floor(Math.random() * 75) + 1;
-    //                         if(successRate <= 97) {
-    //                             scored = true;
-    //                             totalYards = 20;
-    //                             totalFGs += totalFGs;
-    //                             totalYards = 100 - totalYards;
-    //                         }
-    //                     } else if(fieldGoalLength > 49 && fieldGoalLength <= 59) {
-    //                         const successRate = Math.floor(Math.random() * 65) + 1;
-    //                         if(successRate <= 97) {
-    //                             scored = true;
-    //                             totalYards = 20;
-    //                             totalFGs += totalFGs;
-    //                             totalYards = 100 - totalYards;
-    //                         }
-    //                     } else if(fieldGoalLength > 59 && fieldGoalLength <= 69) {
-    //                         const successRate = Math.floor(Math.random() * 45) + 1;
-    //                         if(successRate <= 97) {
-    //                             scored = true;
-    //                             totalYards = 20;
-    //                             totalFGs += totalFGs;
-    //                             totalYards = 100 - totalYards;
-    //                         }
-    //                     }
-    //                 } else {
-    //                     if(decidePlay <= 53) {
-    //                         // Generate a random number for yards gained in run play
-    //                         let yardsGainedOnPlay = Math.floor(Math.random() * 6) + 1;
-    //                         yardsGainedOnPlay += yardsGainedOnPlay;
-    //                         totalYardsPerSetOfDowns += yardsGainedOnPlay;
-    //                         totalYards += yardsGainedOnPlay;
-    //                         totalRuns++;
-    //                         console.log('            Ran for: ' + yardsGainedOnPlay + ' yards\n');
-    //                         if(totalYards >= 100) {
-    //                             yardsGainedOnPlay = 0;
-    //                             totalTDs += 1;
-    //                             totalYards = 20;
-    //                             break;
-    //                         }
-    //                         if(totalYardsPerSetOfDowns > 10) {
-    //                             yardsGainedOnPlay = 0;
-    //                             break;
-    //                         }
-    //                     } else {
-    //                         // Generate a random number for yards gained in pass play with an average of 4.43
-    //                         let yardsGainedOnPlay = Math.floor(Math.random() * 9) + 1;
-    //                         yardsGainedOnPlay += yardsGainedOnPlay;
-    //                         totalYards += yardsGainedOnPlay;
-    //                         totalYardsPerSetOfDowns += yardsGainedOnPlay;
-    //                         totalPasses++;
-    //                         console.log('            Passed for: ' + yardsGainedOnPlay + ' yards\n');
-    //                         if(totalYardsPerSetOfDowns > 10) {
-    //                             yardsGainedOnPlay = 0;
-    //                             console.log('            1st Down!\n');
-    //                             break;
-    //                         }
-    //                         if(totalYards >= 100) {
-    //                             yardsGainedOnPlay = 0;
-    //                             totalTDs += 1;
-    //                             console.log('            TOUCHDOWN!!!\n');
-    //                             break;
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         } else {
+        console.log('\n-- Team B --' + 
+            '\nTotal Yards: ' + teamBStats.totalYards +
+            '\nAverage Yards per Play: ' + teamBStats.averageYPP +
+            '\nTouchdowns: ' + teamBStats.tds + 
+            '\nField Goals: ' + teamBStats.fgs + 
+            '\nFinal Score: ' + teamBStats.score);
 
-    //             if(decidePlay <= 53) {
-    //                 // Generate a random number for yards gained in run play
-    //                 let yardsGainedOnPlay = Math.floor(Math.random() * 6) + 1;
-    //                 yardsGainedOnPlay += yardsGainedOnPlay;
-    //                 totalYardsPerSetOfDowns += yardsGainedOnPlay;
-    //                 totalYards += yardsGainedOnPlay;
-    //                 totalRuns++;
-    //                 console.log('            Ran for: ' + yardsGainedOnPlay + ' yards\n');
-    //                 if(totalYards >= 100) {
-    //                     yardsGainedOnPlay = 0;
-    //                     totalTDs += 1;
-    //                     console.log('        TOUCHDOWN!!!\n');
-    //                     break;
-    //                 }
-    //                 if(totalYardsPerSetOfDowns > 10) {
-    //                     yardsGainedOnPlay = 0;
-    //                     console.log('            1st Down!\n');
-    //                     break;
-    //                 }
-    //             } else {
-    //                 // Generate a random number for yards gained in pass play with an average of 4.43
-    //                 let yardsGainedOnPlay = Math.floor(Math.random() * 9) + 1;
-    //                 yardsGainedOnPlay += yardsGainedOnPlay;
-    //                 totalYardsPerSetOfDowns += yardsGainedOnPlay;
-    //                 totalYards += yardsGainedOnPlay;
-    //                 totalPasses++;
-    //                 console.log('            Passed for: ' + yardsGainedOnPlay + ' yards\n');
-    //                 if(totalYards >= 100) {
-    //                     yardsGainedOnPlay = 0;
-    //                     totalTDs += 1;
-    //                     console.log('            TOUCHDOWN!!!\n');
-    //                     break;
-    //                 }
-    //                 if(totalYardsPerSetOfDowns > 10) {
-    //                     yardsGainedOnPlay = 0;
-    //                     console.log('            1st Down!\n');
-    //                     break;
-    //                 }
-    //             }
-    //             if(d == 4) {
-    //                 const yardsPunted = Math.floor(Math.random() * 45) + 1;
-    //                 if(yardsPunted > yardsRemaining) {
-    //                     totalYards = 20;
-    //                 } else {
-    //                     totalYards = 100 - (yardsPunted + yardsRemaining);
-    //                 }
-    //                 console.log('            Punt for: ' + yardsPunted + ' yards\n');
-    //                 break;
-    //             }
-    //         }
-    //     }
-    //     console.log('      Yards Gained: ' + totalYards + '      \n');
-    // }
-    
-    console.log('TDs: ' + totalTDs + '\n');
-    console.log('FGs: ' + totalFGs + '\n');
-    console.log('==================');
-} 
-calculateNFLGame();
-function calculateStats(attempts) {
-    const S = 0.30; // Probability of success (30%)
-    const F = 0.70; // Probability of failure (70%)
-    const SS = 0.05; // Probability of scoring on a successful attempt (5%)
-    const FT = 0.01; // Probability of a turnover on a failed attempt (1%)
-    const NP = 0.99; // Probability of a punt on a failed attempt (99%)
-
-    let tableData = '';
-
-    for(let i = 0; i < attempts; i++) {
-        // Check if the attempt is successful or not
-        const isSuccess = Math.random() <= S;
-        let score = 0;
-        let turnover = 0;
-        let punt = 0;
-
-        if(isSuccess) {
-            // Check if the successful attempt results in a score or not
-            const isScore = Math.random() <= SS;
-            if(isScore) {
-            score = 1;
-            }
+        if(teamAStats.score === teamBStats.score) {
+            game.winner = 'Tie';
         } else {
-            // Check if the failed attempt results in a turnover or a punt
-            const isTurnover = Math.random() <= FT;
-            if(isTurnover) {
-                turnover = 1;
+            if(teamAStats.score > teamBStats.score) {
+                game.winner = 'Team A Wins!';
             } else {
-                punt = 1;
+                game.winner = 'Team B Wins!';
             }
         }
 
-        // Add row to the table data
-        tableData += `
-            <tr>
-                <th>Attempt</th>
-                <th>Score</th>
-                <th>Turnover</th>
-                <th>Punt</th>
-            </tr>
-            <tr>
-                <td>${i + 1}</td>
-                <td>${score}</td>
-                <td>${turnover}</td>
-                <td>${punt}</td>
-            </tr>
-        `;
-    }
+        console.log(game);
 
-    // Update the table body with the generated data
-    document.getElementById('resultTable').innerHTML = tableData;
-}
+        console.log('\n');
+        console.log('         +++ ' + game.winner + ' +++       ');
+        console.log('\n');
+
+        // Set up JSON data for game
+        const gameJSON = JSON.stringify(game);
+        const teamAJSON = JSON.stringify(teamAStats);
+        const teamBJSON = JSON.stringify(teamBStats);
+
+        // Parse through the data
+        const parsedGAME = JSON.parse(gameJSON);
+        const parsedTEAMA = JSON.parse(teamAJSON);
+        const parsedTEAMB = JSON.parse(teamBJSON);
+
+        let displayContent = `
+            <div class="results row">
+                <div class="col col-12 winner">
+                    <h2>${game.winner}</h2>
+                </div>
+                <div class="col col-12 col-md-6 team-a">
+                    <h3>Team A Stats</h3>
+                    <p>Total Yards: ${teamAStats.totalYards}</p>
+                    <p>Average YPP: ${teamAStats.averageYPP}</p>
+                    <p>TDs: ${teamAStats.tds}</p>
+                    <p>FGs: ${teamAStats.fgs}</p>
+                    <p><strong>Score: ${teamAStats.score}</strong></p>
+                </div>
+                <div class="col col-12 col-md-6 team-b">
+                    <h3>Team B Stats</h3>
+                    <p>Total Yards: ${teamBStats.totalYards}</p>
+                    <p>Average YPP: ${teamBStats.averageYPP}</p>
+                    <p>TDs: ${teamBStats.tds}</p>
+                    <p>FGs: ${teamBStats.fgs}</p>
+                    <p><strong>Score: ${teamBStats.score}</strong></p>
+                </div>
+                <div class="col col-12 additional-info">
+                    <h4>Open the browser console to view more detailed stats!</h4>
+                </div>
+            </div>`;
+        resultsDisplay.innerHTML = displayContent;
+
+        return game;
+    }
+    simulateGame(24);
+    
+    
+} 
 
 window.onload = function() {
     const registerChoices = document.getElementById('register-choices');
@@ -514,6 +603,9 @@ window.onload = function() {
     const registerInputs = document.getElementById('register-inputs');
     const revealLogin = document.getElementById('reveal-login');
     const loginInputs = document.getElementById('login-inputs');
+    const editProfile = document.getElementById('edit-profile');
+    const editProfileOptions = document.getElementsByClassName('edit-profile-option');
+    const runNFLGame = document.getElementById('run-nfl-game');
 
     if(revealRegister) {
         revealRegister.addEventListener('click', () => {
@@ -528,7 +620,7 @@ window.onload = function() {
     }
 
     if(revealLogin) {
-        revealLogin.addEventListener('click', () => {
+        revealLogin.addEventListener('click', () => { 
             if (loginInputs.style.display === 'none') {
                 loginInputs.style.display = 'block';
                 registerChoices.style.display = 'none';
@@ -536,6 +628,28 @@ window.onload = function() {
                 loginInputs.style.display = 'none';
                 registerChoices.style.display = 'flex';
             }
+        });
+    }
+
+    if(editProfile) {
+        editProfile.addEventListener('click', () => { 
+            if(editProfileOptions) {
+                Array.from(editProfileOptions).forEach(elm => {
+                    if(elm.style.display === 'none') {
+                        elm.style.display = "block";
+                    } else {
+                        elm.style.display = "none";
+                    }
+                });
+            }
+        });
+    }
+
+    if(runNFLGame) {
+        runNFLGame.addEventListener('click', (e) => { 
+            e.preventDefault();
+            document.getElementById('game-results').classList.add('visible');
+            calculateNFLGame();
         });
     }
 }
