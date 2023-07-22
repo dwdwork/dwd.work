@@ -603,34 +603,64 @@ window.onload = function() {
     const registerInputs = document.getElementById('register-inputs');
     const revealLogin = document.getElementById('reveal-login');
     const loginInputs = document.getElementById('login-inputs');
+    const backToLand = document.getElementsByClassName('back-to-landing');
     const editProfile = document.getElementById('edit-profile');
     const editProfileOptions = document.getElementsByClassName('edit-profile-option');
     const runNFLGame = document.getElementById('run-nfl-game');
+    
+    // Updated when reveal buttons clicked
+    let landing = true;
 
+    // Only execute if element exists
     if(revealRegister) {
+
         revealRegister.addEventListener('click', () => {
+
+            // Reveal register functions
             if (registerInputs.style.display === 'none') {
                 registerInputs.style.display = 'block';
                 registerChoices.style.display = 'none';
+                landing = false;
             } else {
                 registerInputs.style.display = 'none';
                 registerChoices.style.display = 'flex';
+                landing = true;
             }
         });
     }
 
+    // Only execute if element exists
     if(revealLogin) {
+
         revealLogin.addEventListener('click', () => { 
             if (loginInputs.style.display === 'none') {
                 loginInputs.style.display = 'block';
                 registerChoices.style.display = 'none';
+                landing = false;
             } else {
                 loginInputs.style.display = 'none';
                 registerChoices.style.display = 'flex';
+                landing = true;
             }
         });
     }
 
+    // Only execute if element exists
+    if(backToLand) {
+
+        Array.from(backToLand).forEach(elm => {
+            elm.addEventListener('click', () => {
+                if(landing === false) {
+                    registerInputs.style.display = 'none';
+                    loginInputs.style.display = 'none';
+                    registerChoices.style.display = 'flex';
+                    landing = true;
+                }
+            });
+        });
+    }
+
+    // Only execute if element exists
     if(editProfile) {
         editProfile.addEventListener('click', () => { 
             if(editProfileOptions) {

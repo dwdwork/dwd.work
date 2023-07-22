@@ -3,9 +3,16 @@
  * User logout
  */
 
- if (session_status() === PHP_SESSION_NONE) {
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
+// Exit page if accessed directly
+if (!isset($_SERVER['HTTP_REFERER'])) {
+    header("Location: ../");
+    exit; 
+}
+
 require_once 'config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

@@ -50,7 +50,7 @@ function loggy_woggy_table() {
 
     require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
     dbDelta($sql);
-}
+} loggy_woggy_table();
 
 // User authentication with session
 function isUserAuthenticated() {

@@ -8,7 +8,7 @@ if(session_status() === PHP_SESSION_NONE) {
 }
 
 if(!isset($_SESSION['username'])) {
-    header('Location: index.php');
+    header('Location: ../index.php');
     exit;
 }
 
@@ -30,72 +30,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ?>
-<script>
-
-// function printStats(attempts) {
-
-//     function calculateStats(attempts) {
-//         const S = 0.30; // Probability of success (30%)
-//         const F = 0.70; // Probability of failure (70%)
-//         const SS = 0.05; // Probability of scoring on a successful attempt (5%)
-//         const FT = 0.01; // Probability of a turnover on a failed attempt (1%)
-//         const NP = 0.99; // Probability of a punt on a failed attempt (99%)
-
-//         // Calculate the number of scores, turnovers, and punts per attempt
-//         const numScoresPerAttempt = S * SS;
-//         const numTurnoversPerAttempt = F * FT;
-//         const numPuntsPerAttempt = F * NP;
-
-//         // Calculate the total number of scores, turnovers, and punts over all attempts
-//         const totalScores = attempts * numScoresPerAttempt;
-//         const totalTurnovers = attempts * numTurnoversPerAttempt;
-//         const totalPunts = attempts * numPuntsPerAttempt;
-//     }
-
-//     let results = calculateStats(attempts);
-//     console.log(results);
-//     document.getElementById('clever-stats-results').innerHTML = results;   
-// }
-// const attempts = 12;
-// const S = 0.30; // Probability of success (30%)
-// const F = 0.70; // Probability of failure (70%)
-// const SS = 0.05; // Probability of scoring on a successful attempt (5%)
-// const FT = 0.01; // Probability of a turnover on a failed attempt (1%)
-// const NP = 0.99; // Probability of a punt on a failed attempt (99%)
-
-// let totalScores = 0;
-// let totalTurnovers = 0;
-// let totalPunts = 0;
-
-// for(let i = 0; i < attempts; i++) {
-//     // Check if the attempt is successful or not
-//     const isSuccess = Math.random() <= S;
-//     console.log(isSuccess);
-//     if(isSuccess) {
-//         // Check if the successful attempt results in a score or not
-//         const isScore = Math.random() <= SS;
-//         if(isScore) {
-//             totalScores++;
-//         }
-//     } else {
-//         // Check if the failed attempt results in a turnover or a punt
-//         const isTurnover = Math.random() <= FT;
-//         if(isTurnover) {
-//             totalTurnovers++;
-//         } else {
-//             totalPunts++;
-//         }
-//     }
-// }
-
-// Calculate the total number of scores, turnovers, and punts over all attempts
-// const totalScores = attempts * numScoresPerAttempt;
-// const totalTurnovers = attempts * numTurnoversPerAttempt;
-// const totalPunts = attempts * numPuntsPerAttempt;
-
-// const results = 'Score: ' + totalScores + '\n' + 'Turnovers: ' + totalTurnovers + '\n' + 'Punts: ' + totalPunts;
-// console.log(results);
-</script>
 
 <!DOCTYPE html>
 <html>
@@ -194,6 +128,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </div>
                             </div>
                         </div>
+                        <div class="edit-profile-option" style="display: none; width: 100%;">
+                            <div class="row col submit">
+                                <input type="submit" value="Update Profile" class="col-12">
+                            </div>
+                        </div>
                         <div class="row col">
                             <div class="col-12 col-md-4">
                                 <label for="bio">Game Simulator Settings</label>
@@ -219,11 +158,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
                         <div id="game-results" class="row col">
                         </div>
-                        <div class="edit-profile-option" style="display: none;">
-                            <div class="row col submit edit-profile-option">
-                                <input type="submit" value="Update" class="col-12">
-                            </div>
-                        </div>
+                        
                     </form>
                 </div>
             </div>

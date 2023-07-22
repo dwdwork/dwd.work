@@ -11,6 +11,6 @@ $_SESSION = array();
 session_destroy();
 
 // Redirect the user to the login page
-header("Location: ../src/register.html");
+header("Location: ../");
 exit();
 ?>

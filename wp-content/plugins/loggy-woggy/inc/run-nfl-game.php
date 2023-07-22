@@ -3,6 +3,11 @@
  * Hold main functionality for running an NFL game script
  */
 
+// Exit page if accessed directly
+if (!isset($_SERVER['HTTP_REFERER'])) {
+    header("Location: ../");
+    exit; 
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve user data from the form

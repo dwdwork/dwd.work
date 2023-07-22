@@ -7,6 +7,7 @@
 /* Basic styles */
 body {
     margin: 0;
+    height: 100vh;
     font-family: "Helvetica", sans-serif;
     background-image: linear-gradient(135deg, #1460a5, #013976);
     overflow: hidden;
@@ -20,14 +21,27 @@ a:hover {
     cursor: pointer;
 }
 
+p.h2 {
+    color: #fed319;
+    font-size: 36px;
+    text-align: center;
+}
+
+#app.app #entry form {
+    width: 100%;
+}
+
+#app.app #entry form input {
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.25rem;
+}
+
 #app.app {
     max-width: 100vw;
     max-height: 100vh;
     width: 100%;
-    height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     overflow-y: scroll;
     padding: 50px;
 }
@@ -40,6 +54,10 @@ a:hover {
     flex-direction: column;
     width: 100%;
     height: 100%;
+}
+
+#loggy-woggy > .container {
+    padding-bottom: 3rem;
 }
 
 #loggy-woggy-dashboard {
@@ -65,9 +83,16 @@ a:hover {
 #loggy-woggy .register-form {
     display: block;
     width: 600px;
-    max-height: 100%;
     border-radius: .75rem;
     box-shadow: 4px 4px 18px 4px rgba(0, 0, 0, 0.35);
+}
+
+#loggy-woggy .register-form h2 {
+    font-family: 'Helvetica', sans-serif;
+    color: white;
+    width: 100%;
+    text-align: center;
+    letter-spacing: unset;
 }
 
 #loggy-woggy .dashboard-form {
@@ -94,14 +119,6 @@ a:hover {
 #loggy-woggy .dashboard-form .profile-logout a:not(:first-child) {
     margin-top: 1rem;
 }
-/* 
-#loggy-woggy .register-form .logo {
-    margin: 0 auto 0 auto;
-}
-
-#loggy-woggy .dashboard-form .logo {
-    margin: 0 auto;
-} */
 
 #loggy-woggy .dashboard-form .logo {
     max-width: 200px;
@@ -125,6 +142,11 @@ a:hover {
     margin: auto;
 }
 
+#loggy-woggy .register-form .logo-image {
+    max-width: 55%;
+    margin: auto;
+}
+
 #loggy-woggy .dashboard-form .logo-image .image {
     max-width: 250px;
 }
@@ -134,8 +156,12 @@ a:hover {
     border-radius: .5rem;
 }
 
+#loggy-woggy .register-form .logo {
+    margin: auto;
+}
+
 #loggy-woggy .register-form .logo-text {
-    margin: -15% auto 0 auto;
+    margin: 0 auto 0 auto;
 }
 
 #loggy-woggy .dashboard-form .logo-text {
@@ -168,7 +194,6 @@ a:hover {
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    min-height: 250px;
 }
 
 #loggy-woggy button {
@@ -202,12 +227,14 @@ a:hover {
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    min-height: 250px;
+}
+
+#loggy-woggy .register-choices button:first-child {
+    margin-bottom: 3rem;
 }
 
 #loggy-woggy .register-inputs, #loggy-woggy .login-inputs, #loggy-woggy .dashboard-inputs {
     color: white;
-    min-height: 300px;
 }
 
 #loggy-woggy .register-inputs form, #loggy-woggy .login-inputs form, #loggy-woggy .dashboard-inputs form {
