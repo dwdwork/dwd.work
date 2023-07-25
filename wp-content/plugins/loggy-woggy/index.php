@@ -37,10 +37,10 @@
                 <div id="entry" class="col col-12 entry" style="display: flex;">
                     <form method="POST" action="inc/validate-entry.php" class="form-inputs">
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col-12 col-sm-8">
                                 <input type="text" name="entrypw" id="entrypw" placeholder="Enter Password">
                             </div>
-                            <div class="col-4">
+                            <div class="col-12 col-sm-4">
                                 <input type="submit" value="Submit">
                             </div>
                         </div>

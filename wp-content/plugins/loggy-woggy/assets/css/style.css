@@ -31,6 +31,26 @@ p.h2 {
     width: 100%;
 }
 
+#app.app #entry form > .row {
+    display: flex;
+    flex-direction: column
+}
+
+#app.app #entry form > .row > div:last-child {
+    margin-top: 2rem;
+}
+
+@media (min-width: 576px) {
+    
+    #app.app #entry form > .row {
+        flex-direction: row;
+    }
+
+    #app.app #entry form > .row > div:last-child  {
+        margin-top: 0;
+    }
+}
+
 #app.app #entry form input {
     width: 100%;
     padding: 0.75rem 1.25rem;
@@ -41,9 +61,23 @@ p.h2 {
     max-width: 100vw;
     max-height: 100vh;
     width: 100%;
+    height: 100%;
     display: flex;
     overflow-y: scroll;
-    padding: 50px;
+}
+
+@media only screen and (min-width: 768px) {
+
+    #app.app {
+        padding: 24px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+
+    #app.app {
+        padding: 64px;
+    }
 }
 
 /* Register form styles */
@@ -82,9 +116,24 @@ p.h2 {
 
 #loggy-woggy .register-form {
     display: block;
-    width: 600px;
-    border-radius: .75rem;
-    box-shadow: 4px 4px 18px 4px rgba(0, 0, 0, 0.35);
+    max-width: 100%;
+    height: 100%;
+}
+
+@media (min-width: 768px) {
+
+    #loggy-woggy .register-form {
+        height: auto;
+        border-radius: .75rem;
+        box-shadow: 4px 4px 18px 4px rgba(0, 0, 0, 0.35);
+    }
+}
+
+@media (min-width: 992px) {
+
+    #loggy-woggy .register-form {
+        max-width: 990px;
+    }
 }
 
 #loggy-woggy .register-form h2 {
@@ -142,18 +191,27 @@ p.h2 {
     margin: auto;
 }
 
-#loggy-woggy .register-form .logo-image {
-    max-width: 55%;
-    margin: auto;
-}
-
-#loggy-woggy .dashboard-form .logo-image .image {
-    max-width: 250px;
+#loggy-woggy .logo-image .image img {
+    height: 150px;
 }
 
 #loggy-woggy .logo-text {
-    padding: .5rem;
+    padding: .15rem;
     border-radius: .5rem;
+}
+
+@media (min-width: 576px) {
+    
+    #loggy-woggy .logo-text {
+        padding: .25rem;
+    }
+}
+
+@media (min-width: 768px) {
+    
+    #loggy-woggy .logo-text {
+        padding: .5rem;
+    }
 }
 
 #loggy-woggy .register-form .logo {
@@ -177,15 +235,31 @@ p.h2 {
 #loggy-woggy .logo-text-image h1 {
     margin: 0;
     color: #eb001d;
-    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: white;
     text-align: center;
     font-family: 'NFL';
-    font-size: 72px;
+    font-size: 36px;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 4px;
     padding-top: 10px;
+}
+
+@media (min-width: 576px) {
+
+    #loggy-woggy .logo-text-image h1 {
+        -webkit-text-stroke-width: 2px;
+        font-size: 64px;
+    }
+}
+
+@media (min-width: 768px) {
+
+    #loggy-woggy .logo-text-image h1 {
+        -webkit-text-stroke-width: 3px;
+        font-size: 72px;
+    }
 }
 
 #loggy-woggy .register-choices {
@@ -253,9 +327,22 @@ p.h2 {
 
 #loggy-woggy .register-inputs form .col, #loggy-woggy .login-inputs form .col, #loggy-woggy .dashboard-inputs form .col {
     display: flex;
+    flex-direction: column;
     padding-top: 1rem;
     padding-bottom: 1rem;
     flex-basis: unset;
+}
+
+@media (min-width: 768px) {
+
+    #loggy-woggy .register-inputs form .col, #loggy-woggy .login-inputs form .col, #loggy-woggy .dashboard-inputs form .col {
+        flex-direction: row;
+    }
+}
+
+#loggy-woggy .register-inputs form .col label, #loggy-woggy .login-inputs form .col label, #loggy-woggy .dashboard-inputs form .col label {
+    padding-left: 0;
+    margin-bottom: .5rem;
 }
 
 #loggy-woggy .register-inputs form .col, #loggy-woggy .login-inputs form .col {
@@ -335,8 +422,16 @@ p.h2 {
 /* Utility classes */
 #loggy-woggy .col-14 {
     max-width: unset !important;
-    width: 115%;
-    margin-left: calc(15% / -2) !important;
+    width: 90%;
+    margin: auto;
+}
+
+@media (min-width: 992px) {
+
+    #loggy-woggy .col-14 {
+        width: 115%;
+        margin-left: calc(15% / -2) !important;
+    }
 }
 
 .yellow-bg {

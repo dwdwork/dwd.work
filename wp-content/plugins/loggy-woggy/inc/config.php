@@ -3,6 +3,9 @@
  * Database connections
  */
 
+// Get the current URL
+$currentURL = $_SERVER['REQUEST_URI'];
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -13,20 +16,24 @@ $DB_PASS = 'root';
 $DB_NAME = 'local';
 $user_valid = false;
 
-// Database connection
-$conn = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
-if (!$conn) {
-    die("Database connection failed: " . mysqli_connect_error());
-}
+// Test the current URL
+if (strpos($currentURL, '/wp-content/plugins/loggy-woggy/') !== false) {
+    
+    // Database connection
+    $conn = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
+    if (!$conn) {
+        die("Database connection failed: " . mysqli_connect_error());
+    }
 
-// Retrieve the user record from the database
-$userId = $_SESSION['user_id'];
-$sql = "SELECT * FROM wpym_loggy_woggy_users WHERE id = '$userId'";
-$user_result = mysqli_query($conn, $sql);
-if ($user_result && mysqli_num_rows($user_result) > 0) {
-    $user_data = mysqli_fetch_assoc($user_result);
-    $user_valid = true;
-}
+    // Retrieve the user record from the database
+    $userId = $_SESSION['user_id'];
+    $sql = "SELECT * FROM wpym_loggy_woggy_users WHERE id = '$userId'";
+    $user_result = mysqli_query($conn, $sql);
+    if ($user_result && mysqli_num_rows($user_result) > 0) {
+        $user_data = mysqli_fetch_assoc($user_result);
+        $user_valid = true;
+    }
+} 
 
 // Set up DB table
 function loggy_woggy_table() {
@@ -50,7 +57,7 @@ function loggy_woggy_table() {
 
     require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
     dbDelta($sql);
-} loggy_woggy_table();
+}
 
 // User authentication with session
 function isUserAuthenticated() {

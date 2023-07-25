@@ -5,7 +5,7 @@
 
 // Exit page if accessed directly
 if (!isset($_SERVER['HTTP_REFERER'])) {
-    header("Location: ../"); // Replace "error_page.php" with the desired error page
+    header("Location: ../"); 
     exit; // Stop further execution of the script
 }
 
@@ -47,16 +47,16 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                     <a class="back-to-landing">&larr; Back</a>
                     <form method="POST" action="./register-user.php" class="form-inputs">
                         <div class="col col-12">
-                            <label for="username" class="col-4">Username</label>
-                            <input type="text" name="username" id="username" placeholder="Username" class="col-8">
+                            <label for="username" class="col-12 col-md-4">Username</label>
+                            <input type="text" name="username" id="username" placeholder="Username" class="col-12 col-md-8">
                         </div>
                         <div class="col col-12">
-                            <label for="email" class="col-4">Email</label>
-                            <input type="email" name="email" id="email" placeholder="test@example.com" class="col-8" required>
+                            <label for="email" class="col-12 col-md-4">Email</label>
+                            <input type="email" name="email" id="email" placeholder="test@example.com" class="col-12 col-md-8" required>
                         </div>
                         <div class="col col-12">
-                            <label for="password" class="col-4">Password</label>
-                            <input type="password" name="password" id="password" class="col-8" required>
+                            <label for="password" class="col-12 col-md-4">Password</label>
+                            <input type="password" name="password" id="password" class="col-12 col-md-8" required>
                         </div>
                         <div class="col col-12 submit">
                             <input type="submit" value="Register" class="col-12">
@@ -67,12 +67,12 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                     <a class="back-to-landing">&larr; Back</a>
                     <form method="POST" action="../inc/login.php" class="form-inputs">
                         <div class="col col-12">
-                            <label for="username" class="col-4">Username</label>
-                            <input type="text" name="username" id="username" placeholder="john123" class="col-8">
+                            <label for="username" class="col-12 col-md-4">Username</label>
+                            <input type="text" name="username" id="username" placeholder="john123" class="col-12 col-md-8">
                         </div>
                         <div class="col col-12">
-                            <label for="password" class="col-4">Password</label>
-                            <input type="password" name="password" id="password" class="col-8" required>
+                            <label for="password" class="col-12 col-md-4">Password</label>
+                            <input type="password" name="password" id="password" class="col-12 col-md-8" required>
                         </div>
                         <div class="col col-12 submit">
                             <input type="submit" value="Login" class="col-12">

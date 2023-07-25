@@ -8,7 +8,7 @@ if(session_status() === PHP_SESSION_NONE) {
 }
 
 if(!isset($_SESSION['username'])) {
-    header('Location: ../index.php');
+    header('Location: ../');
     exit;
 }
 
@@ -68,7 +68,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <h2><?php echo $_SESSION['username']; ?>'s NFL Simulator</h2>
                         </div>
                         <div class="col-12 col-md-4 profile-logout">
-                            <a href="logout.php">Logout</a>
+                            <a href="./logout.php">Logout</a>
                             <a href="#" id="edit-profile" class="btn edit-profile-btn">Edit Profile</a>
                         </div>
                     </div>
