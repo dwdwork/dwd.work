@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dashboard</title>
+    <title>Loggy Woggy App</title>
     <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
     <link href="./assets/css/dashboard.css" rel="stylesheet" type="text/css">
     <link href="./assets/css/bootstrap-grid.min.css" rel="stylesheet" type="text/css">

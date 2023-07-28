@@ -464,23 +464,6 @@ i.fa-solid {
     background-color: #d6ff7d;
 }
 
-#loggy-woggy .dashboard-inputs form #game-results {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-#loggy-woggy .dashboard-inputs form #game-results .row {
-    width: unset;
-}
-
-#loggy-woggy .dashboard-inputs form #game-results .row h3 {
-    width: 100%;
-}
-
-#loggy-woggy .dashboard-inputs form .col textarea {
-    min-height: 100px;
-}
-
 #loggy-woggy .register-form .form-container {
     padding: 1rem;
 }
