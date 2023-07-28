@@ -3,8 +3,13 @@
  * Holds user's profile info
  */
 
+// Get config 
 require_once('../config.php');
 
+// Get user data
+$user_data = getUserData();
+
+// Check for updated values in HTML form
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $display_name = $_POST['display_name'];

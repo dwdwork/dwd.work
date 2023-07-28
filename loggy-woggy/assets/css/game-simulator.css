@@ -1,7 +1,7 @@
 /* CSS for game simulator contents */
 
-#game-simulator-contents {
-    
+#game-simulator-contents label {
+    font-weight: 700;
 }
 
 .game-simulator-settings {

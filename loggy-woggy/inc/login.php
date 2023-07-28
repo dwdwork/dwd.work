@@ -3,10 +3,6 @@
  * User logout
  */
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
 // Exit page if accessed directly
 if (!isset($_SERVER['HTTP_REFERER'])) {
     header("Location: ../");
@@ -21,8 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     // Retrieve the user record from the users table
+    $connect = getDBConnection();
+    
     $sql = "SELECT * FROM wpym_loggy_woggy_users WHERE username = '$username' OR email = '$username'";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($connect, $sql);
 
     if ($result && mysqli_num_rows($result) > 0) {
         $user = mysqli_fetch_assoc($result);
@@ -51,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Close the database connection
-    mysqli_close($conn);
+    mysqli_close($connect);
 
     // If login is not successful, redirect the user back to the login page with an error message
     header('Location: login.php?error=1');

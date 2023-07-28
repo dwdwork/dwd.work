@@ -12,6 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+    // Connect to DB
+    $connect = getDBConnection();
+
     // Handle database errors and provide appropriate feedback to the user
     if(mysqli_connect_error()) {
         exit ('Error connecting to the database ' . mysqli_connect_error());
@@ -25,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit('Values Empty');
     }
     
-    if($stmnt = $conn->prepare('SELECT id, password FROM wpym_loggy_woggy_users WHERE username = ?')) {
+    if($stmnt = $connect->prepare('SELECT id, password FROM wpym_loggy_woggy_users WHERE username = ?')) {
         if(empty($username)) {
             $username = $email;
         }
@@ -37,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if($stmnt->num_rows > 0) {
             echo 'Username already exists. Try again.';
         } else {
-            if($stmnt = $conn->prepare('INSERT INTO wpym_loggy_woggy_users (username, email, password) VALUES (?, ?, ?)')) { 
+            if($stmnt = $connect->prepare('INSERT INTO wpym_loggy_woggy_users (username, email, password) VALUES (?, ?, ?)')) { 
                 $password = password_hash($password, PASSWORD_DEFAULT);
                 $stmnt->bind_param('sss', $username, $email, $password);
                 $stmnt->execute();
@@ -53,6 +56,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo 'Error with sql connection.';
     }
     
-    $conn->close();
+    $connect->close();
 }
 ?>

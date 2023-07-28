@@ -18,8 +18,8 @@
     font-size: 1.5rem;
 }
 
-.schedule-button {
-    margin-bottom: 1rem;
+#schedule-contents .schedule-button {
+    padding: 1rem 0 2rem;
 }
 
 @media (min-width: 992px) {
