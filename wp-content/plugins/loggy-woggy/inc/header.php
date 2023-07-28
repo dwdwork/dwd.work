@@ -18,7 +18,7 @@
     <script src="./assets/js/scripts.js"></script>
     <script src="./assets/js/dashboard.js"></script>
     <script src="./assets/js/game-simulator.js"></script>
-    <script src="./assets/js/profile.js"></script>
+    <!-- <script src="./assets/js/profile.js"></script> -->
     <script src="./assets/js/schedule.js"></script>
     <script src="./assets/js/stats.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">

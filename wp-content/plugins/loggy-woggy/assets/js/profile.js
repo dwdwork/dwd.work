@@ -23,3 +23,20 @@ function revealEditingOptions() {
         });
     }
 }
+
+function onLoad() {
+
+    function updateFavTeamChoices() {
+        const dropdown = document.getElementById('fav_team');
+        for (const label in teams) {
+            if(label) {
+                const option = document.createElement('option');
+                option.value = teams[label];
+                option.text = label;
+                dropdown.appendChild(option);
+            }
+        }
+    }
+
+    setTimeout(updateFavTeamChoices, 250);
+}

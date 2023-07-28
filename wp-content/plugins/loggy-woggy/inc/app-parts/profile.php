@@ -9,13 +9,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $display_name = $_POST['display_name'];
     $email = $_POST['email'];
-    $title = $_POST['title'];
+    $fav_team = $_POST['fav_team'];
     $bio = $_POST['bio'];
 } else {
     $username = $user_data['username'];
     $display_name = $user_data['display_name'];
     $email = $user_data['email'];
-    $title = $user_data['title'];
+    $fav_team = $user_data['fav_team'];
     $bio = $user_data['bio'];
 }
 
@@ -24,8 +24,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div id="profile-contents" class="app-part col-12">
     <h1>Profile Settings</h1>
     <div class="logout-links">
-        <a class="col-6 col-md-12" href="./inc/logout.php">Logout</a>
-        <a onclick="revealEditingOptions();" class="col-6 col-md-12" id="edit-profile" class="btn edit-profile-btn" >Edit Profile</a>
+        <a href="./inc/logout.php">Logout</a>
+        <a onclick="revealEditingOptions();" id="edit-profile" class="btn edit-profile-btn">Edit Profile</a>
     </div>
     <div id="profile-contents-form-container">
         <form method="POST" action="./inc/update-profile.php" class="profile-settings-form form-inputs">
@@ -64,12 +64,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="row profile-settings-item">
                 <div class="col-12 col-md-4 profile-settings-item-label">
-                    <label for="title">Team Name</label>
+                    <label for="title">Favorite Team</label>
                 </div>
                 <div class="col-12 col-md-8">
-                    <?php echo $title; ?>
+                    <?php echo $fav_team; ?>
                     <div class="edit-profile-option" style="display: none;">
-                        <input type="text" name="title" id="title" value="<?php echo $title; ?>">
+                        <select id="fav_team" name="fav_team"></select>
                     </div>
                 </div>
             </div>

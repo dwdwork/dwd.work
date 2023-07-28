@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmnt->execute();
                 
                 // Redirect the user to the dashboard
-                header("Location: ../");
+                header("Location: ./register.php");
             } else {
                 echo 'Error registering user.';
             }

@@ -130,22 +130,22 @@ i.fa-solid {
     width: 100%;
 }
 
-#app.app #entry form > .row {
+#app.app #entry .form-inputs {
     display: flex;
     flex-direction: column;
 }
 
-#app.app #entry form > .row > div:last-child {
+#app.app #entry .form-inputs > div:last-child {
     margin-top: 2rem;
 }
 
 @media (min-width: 576px) {
     
-    #app.app #entry form > .row {
+    #app.app #entry .form-inputs {
         flex-direction: row;
     }
 
-    #app.app #entry form > .row > div:last-child  {
+    #app.app #entry .form-inputs > div:last-child  {
         margin-top: 0;
     }
 }
@@ -154,7 +154,13 @@ i.fa-solid {
     width: 100%;
     padding: 0.75rem 1.25rem;
     border-radius: 0.25rem;
+    font-size: 1.5rem;
 }
+
+#app.app #entry .form-inputs .pw input {
+    border: 3px solid white;
+}
+
 
 /* Register form styles */
 #loggy-woggy {
@@ -310,51 +316,6 @@ i.fa-solid {
     letter-spacing: unset;
 }
 
-#loggy-woggy .dashboard-form {
-    display: block;
-    width: 100%;
-    padding-top: 1rem;
-}
-
-@media (min-width: 768px) {
-
-    #loggy-woggy .dashboard-form {
-        border-radius: .75rem;
-        box-shadow: 4px 4px 18px 4px rgba(0, 0, 0, 0.35);
-    }
-}
-
-#loggy-woggy .profile-title {
-    padding-top: 2rem;
-}
-
-#loggy-woggy .profile-title h2 {
-    margin-top: 0;
-    text-align: center;
-}
-
-#loggy-woggy .dashboard-form .profile-logout {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    flex-direction: row;
-}
-
-#loggy-woggy .dashboard-form .profile-logout a:not(:first-child) {
-    margin-top: 1rem;
-}
-
-#loggy-woggy .dashboard-form .logo {
-    max-width: 200px;
-    margin: auto;
-}
-
-#loggy-woggy .dashboard-form .logotype {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 #loggy-woggy .logo-image {
     padding: .5rem;
 }
@@ -486,14 +447,21 @@ i.fa-solid {
     margin-bottom: 1rem;
 }
 
-#loggy-woggy .form-inputs input, #loggy-woggy .form-inputs textarea {
+#loggy-woggy .form-inputs input, #loggy-woggy .form-inputs textarea, #loggy-woggy .form-inputs select {
     padding: .75rem 1.25rem;
-    border-radius: .25rem;
     width: 100%;
+    border: none;
+    border-radius: .25rem;
 }
 
 #loggy-woggy .form-inputs textarea {
     min-height: 100px
+}
+
+#loggy-woggy .form-inputs select {
+    color: #070607;
+    font-weight: 700;
+    background-color: #d6ff7d;
 }
 
 #loggy-woggy .dashboard-inputs form #game-results {
@@ -522,25 +490,6 @@ i.fa-solid {
         padding: 1rem 3rem;
     } 
     
-}
-
-#loggy-woggy .register-inputs form .col.submit input, #loggy-woggy .login-inputs form .col.submit input, #loggy-woggy .dashboard-inputs form .col.submit input {
-    font-size: 1.5rem;
-    color: #fefefe;
-    border-radius: .5rem;
-    border: 3px solid #fefefe;
-    background-color: transparent;
-}
-
-#loggy-woggy .register-inputs form .col.submit input:hover, #loggy-woggy .login-inputs form .col.submit input:hover, #loggy-woggy .dashboard-inputs form .col.submit input:hover {
-    cursor: pointer;
-}
-#loggy-woggy .dashboard-inputs label {
-    font-weight: 700;
-}
-
-#loggy-woggy .dashboard-inputs form .row {
-    width: 100%;
 }
 
 #loggy-woggy .dashboard-inputs p {

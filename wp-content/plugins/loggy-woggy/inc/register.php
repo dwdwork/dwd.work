@@ -21,7 +21,7 @@
                     <img src="../assets/images/logo-gamblingame.png" />
                 </div>
                 <div class="col-12">
-                    <h1>Better Bets. Gooder Goods.</h1>
+                    <h1>Better Bets<br>Gooder Goods</h1>
                 </div>
                 <div id="register-choices" class="register-choices" style="display: flex;">
                     <button id="reveal-register">Register</button>

@@ -14,7 +14,13 @@
 }
 
 #profile-contents .logout-links {
-    padding: 1rem 0;
+    padding: .25rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+#profile-contents .logout-links a {
+    text-decoration: underline;
 }
 
 @media (min-width: 992px) {
@@ -26,7 +32,6 @@
 
 #profile-contents-form-container {
     color: #fefefe;
-    
 }
 
 @media (min-width: 992px) {
@@ -42,6 +47,10 @@
 
 form.profile-settings-form {
     font-size: 1.25rem;
+}
+
+form.profile-settings-form label {
+    font-weight: 700;
 }
 
 form.profile-settings-form .profile-settings-item {

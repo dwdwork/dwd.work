@@ -16,7 +16,7 @@ include('./inc/header.php');
     <div id="loggy-woggy">
 
     <?php if(!isset($_SESSION['username'])) { 
-        if(isset($_COOKIE['entrypw']) && $_COOKIE['entrypw'] != 'R@mPaN_Can-2o@3') { ?>
+        if(!isset($_COOKIE['entrypw']) || $_COOKIE['entrypw'] != 'R@mPaN_Can-2o@3') { ?>
             <div id="entry" class="entry">
                 <div class="col-8 logo">
                     <img src="./assets/images/logo-gamblingame.png" />
@@ -26,10 +26,10 @@ include('./inc/header.php');
                 </div>
                 <div class="col-12 entry-form">
                     <form method="POST" action="inc/validate-entry.php" class="form-inputs row">
-                        <div class="col-12 col-sm-8">
+                        <div class="col-12 col-sm-8 pw">
                             <input type="text" name="entrypw" id="entrypw" placeholder="Enter Password">
                         </div>
-                        <div class="col-12 col-sm-4">
+                        <div class="col-12 col-sm-4 submit">
                             <input type="submit" value="Submit">
                         </div>
                     </form>
