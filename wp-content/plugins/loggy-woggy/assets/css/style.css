@@ -186,6 +186,20 @@ i.fa-solid {
     }
 }
 
+#loggy-woggy .home-contents .logo-banner {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+#loggy-woggy .home-contents .logo-banner img {
+    max-height: 90px;
+}
+
+#loggy-woggy .home-contents .body-content > div {
+    margin-bottom: 2rem;
+}
+
 #loggy-woggy .register-form {
     margin-top: -100px;
     margin-bottom: -75px;
@@ -635,7 +649,7 @@ header#app-header .header .profile-link {
 #loggy-woggy .desktop-profile-link {
     display: none;
     position: absolute;
-    top: 32px;
+    top: 55px;
     right: 32px;
 }
 
