@@ -8,8 +8,10 @@
 !README.md
 !robots.txt
 !wp-content/
+!loggy-woggy/
+!loggy-woggy/**/*
 
-# Ignore everything except plugins and themes
+# Ignore everything except plugins, themes, and custom folders
 wp-content/jetpack-waf/
 wp-content/mu-plugins/
 wp-content/upgrade/
@@ -21,8 +23,6 @@ wp-content/uploads/
 # Ignore everything in plugins and themes that is not theme specific
 !wp-content/themes/dwd/
 !wp-content/themes/dwd/**/*
-!wp-content/plugins/loggy-woggy/
-!wp-content/plugins/loggy-woggy/**/*
 
 # But still ignore the compiled files
 **/node_modules/
