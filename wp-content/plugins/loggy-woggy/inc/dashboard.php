@@ -37,22 +37,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Dashboard</title>
     <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
     <link href="../assets/css/bootstrap-grid.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/fa-regular.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/fa-solid.min.css" rel="stylesheet" type="text/css">
     <script src="../assets/js/scripts.js"></script>
-    <!-- Add your CSS styling here -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body>
     <div id="app" class="app">
+        <?php include('header.php'); ?>
         <div id="loggy-woggy">
-            <div class="blue-bg container dashboard-form">
+            <div class="container dashboard-form">
                 <div class="row">
-                    <div class="col col-12 col-sm-3 logo">
-                        <div class="logo-image">
-                            <div class="image">
-                                <img src="../assets/images/logo-nfl.svg" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col col-12 col-sm-9  logotype">
+                    <div class="col col-12 col-sm-9 logotype">
                         <div class="logo-text white-bg">
                             <div class="logo-text-image blue-bg">
                                 <div class="image">
@@ -67,9 +63,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="col-12 col-md-8">
                             <h2><?php echo $_SESSION['username']; ?>'s NFL Simulator</h2>
                         </div>
-                        <div class="col-12 col-md-4 profile-logout">
-                            <a href="./logout.php">Logout</a>
-                            <a href="#" id="edit-profile" class="btn edit-profile-btn">Edit Profile</a>
+                        <div class="col-md-4 profile-logout">
+                            <a class="col-6 col-md-12" href="./logout.php">Logout</a>
+                            <a class="col-6 col-md-12" href="#" id="edit-profile" class="btn edit-profile-btn">Edit Profile</a>
                         </div>
                     </div>
                     <form method="POST" action="../inc/update-profile.php" class="form-inputs">
@@ -163,6 +159,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             </div>
         </div>
+        <?php include('footer.php'); ?>
     </div>
+    
 </body>
 </html>

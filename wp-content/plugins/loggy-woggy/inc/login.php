@@ -33,9 +33,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // If the login is successful, set a session or token to authenticate the user
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
+
+            // Set the values you want to store in the cookie
+            $cookieName = 'username';
+            $cookieValue = $username;
+            $cookieExpiration = time() + (86400 * 30);
+            setcookie($cookieName, $cookieValue, $cookieExpiration, '/');
+            $cookieName = 'password';
+            $cookieValue = $password;
+            $cookieExpiration = time() + (86400 * 30);
+            setcookie($cookieName, $cookieValue, $cookieExpiration, '/');
             
             // Redirect the user to the dashboard
-            header('Location: dashboard.php');
+            header('Location: ../');
             exit();
         }
     }

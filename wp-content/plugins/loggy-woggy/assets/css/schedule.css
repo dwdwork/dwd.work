@@ -1,0 +1,91 @@
+/* CSS for nfl schedule */
+
+#schedule-contents {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+#app.app #schedule-contents h1 {
+    margin-top: 0;
+    margin-bottom: 3rem;
+}
+
+#schedule-contents label {
+    font-weight: 700;
+}
+
+#schedule-contents .schedule-contents-settings {
+    font-size: 1.5rem;
+}
+
+.schedule-button {
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 992px) {
+
+    .schedule-button {
+        margin-bottom: 2rem;
+    }
+}
+
+#loggy-woggy .schedule-button button {
+    background-color: #d6ff7d;
+    color: #070607;
+    width: 100%;
+    font-weight: 700;
+}
+
+#display-schedule.game-results {
+    height: 0;
+    opacity: 0;
+    transition: all .4s ease;
+}
+
+#display-schedule.game-results.visible {
+    height: 100%;
+    opacity: 1;
+}
+
+#display-schedule .team button {
+    position: relative;
+    border: none;
+    padding: 8px 18px 8px 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#display-schedule .team button i {
+    padding-right: 2rem;
+}
+
+#display-schedule .team button h3 {
+    margin: 0;
+}
+
+#display-schedule .team .weeks {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2rem;
+    height: 0;
+    opacity: 0;
+    transition: all .4s ease;
+}
+
+#display-schedule .team .weeks p {
+    display: none;
+    margin: 0;
+    transition: margin .2s ease;
+}
+
+#display-schedule .team .weeks.visible {
+    height: auto;
+    opacity: 1;
+    margin-bottom: 2rem;
+}
+
+#display-schedule .team .weeks.visible p {
+    display: block;
+    margin: 1rem 0 0 0;
+}

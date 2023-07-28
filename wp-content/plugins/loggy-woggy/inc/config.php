@@ -10,30 +10,33 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+// Test the current URL    
 $DB_HOST = 'localhost';
 $DB_USER = 'root';
 $DB_PASS = 'root';
 $DB_NAME = 'local';
 $user_valid = false;
 
-// Test the current URL
-if (strpos($currentURL, '/wp-content/plugins/loggy-woggy/') !== false) {
-    
-    // Database connection
-    $conn = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
-    if (!$conn) {
-        die("Database connection failed: " . mysqli_connect_error());
-    }
+// Database connection
+$conn = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
+if (!$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
 
-    // Retrieve the user record from the database
+// Retrieve the user record from the database if session in progress
+if($_SESSION) {
+
+    // Set user id for db access
     $userId = $_SESSION['user_id'];
     $sql = "SELECT * FROM wpym_loggy_woggy_users WHERE id = '$userId'";
     $user_result = mysqli_query($conn, $sql);
+
+    // If results found, put data into a variable
     if ($user_result && mysqli_num_rows($user_result) > 0) {
         $user_data = mysqli_fetch_assoc($user_result);
         $user_valid = true;
     }
-} 
+}
 
 // Set up DB table
 function loggy_woggy_table() {
@@ -142,3 +145,68 @@ function db_table_as_obj() {
 
 // Close the database connection (optional)
 // mysqli_close($conn);
+
+class lw {
+
+    // Build setup functions
+    public function __construct() {
+        add_action('wp_enqueue_scripts', 'lw_enqueue');
+    }
+
+    // Basic function to test
+    public function add($a, $b) {
+        return $a + $b;
+    }
+
+    public function lw_enqueue() {
+        wp_enqueue_style('lw-style', plugins_url('assets/css/style.css', __FILE__));
+        wp_enqueue_style('lw-bootstrap', plugins_url('assets/css/bootstrap-grid.min.css', __FILE__));
+    }
+
+    public function get_current_url() {
+
+        $currentURL = $_SERVER['REQUEST_URI'];
+
+        return $currentURL;
+    }
+
+    public function get_db_info() {
+
+        $get_page = get_current_url();
+
+        // Test the current URL
+        if (strpos($get_page, '/wp-content/plugins/loggy-woggy/') !== false) {
+            
+            // Database connection
+            $conn = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
+            if (!$conn) {
+                die("Database connection failed: " . mysqli_connect_error());
+            }
+
+            // Retrieve the user record from the database
+            $userId = $_SESSION['user_id'];
+            $sql = "SELECT * FROM wpym_loggy_woggy_users WHERE id = '$userId'";
+            $user_result = mysqli_query($conn, $sql);
+            if ($user_result && mysqli_num_rows($user_result) > 0) {
+                $user_data = mysqli_fetch_assoc($user_result);
+                $user_valid = true;
+            }
+        }
+    }
+}
+
+// new lw();
+
+// $lw = new lw();
+
+function loadSDSim() {
+    $xmlFile = simplexml_load_file('../assets/sims/FootballSim2000.xmile');
+
+    $xmlObj = $xmlFile->model;
+
+    $objVariables = $xmlObj->variables;
+
+    $objFlows = $xmlObj->variables->flow;
+}
+
+?>

@@ -41,8 +41,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $password = password_hash($password, PASSWORD_DEFAULT);
                 $stmnt->bind_param('sss', $username, $email, $password);
                 $stmnt->execute();
+                
                 // Redirect the user to the dashboard
-                header("Location: ./dashboard.php");
+                header("Location: ../");
             } else {
                 echo 'Error registering user.';
             }
