@@ -16,6 +16,7 @@ if($_SESSION) { ?>
             <div class="profile-link">
                 <a id="profile-button"><i class="fa-regular fa-user"></i><span>Profile</span></a>
             </div>
+            
         </div>
     </header>
 

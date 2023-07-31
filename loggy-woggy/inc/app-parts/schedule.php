@@ -3,7 +3,6 @@
  * Holds user's profile info
  */
 
-require_once('../config.php');
 ?>
 <link href="./assets/css/schedule.css" rel="stylesheet" type="text/css">
 <div id="schedule-contents" class="app-part col-12">

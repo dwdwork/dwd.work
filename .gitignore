@@ -10,6 +10,8 @@
 !wp-content/
 !loggy-woggy/
 !loggy-woggy/**/*
+# !lw/
+# !lw/**/*
 
 # Ignore everything except plugins, themes, and custom folders
 wp-content/jetpack-waf/

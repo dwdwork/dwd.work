@@ -3,7 +3,6 @@
  * Holds user's profile info
  */
 
-require_once('../config.php');
 ?>
 <link href="./assets/css/stats.css" rel="stylesheet" type="text/css">
 <div id="stats-contents" class="app-part col-12">

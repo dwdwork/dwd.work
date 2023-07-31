@@ -209,29 +209,4 @@ function loginUser($username, $password) {
     return false;
 }
 
-// Retrieve all records from the 'loggy_woggy_users' table as objects
-function db_table_as_obj() {
-    $host = 'localhost';
-    $dbName = 'local';
-    $username = 'local';
-    $password = 'root';
-
-    try {
-        $pdo = new PDO("mysql:host=$host;dbname=$dbName", $username, $password);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $tableName = 'loggy_woggy_users';
-        $query = "SELECT * FROM $tableName";
-
-        $statement = $pdo->query($query);
-        $tableData = $statement->fetchAll(PDO::FETCH_OBJ);
-
-        $pdo = null;
-        return $tableData;
-    } catch (PDOException $e) {
-        echo 'Connection failed: ' . $e->getMessage();
-    }
-}
-
-
 ?>

@@ -11,6 +11,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
 require_once 'config.php';
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve user login data from the form
     $username = $_POST['username'];
@@ -57,3 +58,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ?>
+
+<div class="login-form blue-bg">
+    <div id="login-inputs" class="form-container login-inputs" style="display: none;">
+        <div class="col-12">
+            <a class="back-to-landing">&larr; Back</a>
+        </div>
+        <form method="POST" action="./login.php" class="form-inputs row">
+            <div class="col-12">
+                <label for="username" class="col-12 col-md-4">Username</label>
+                <input type="text" name="username" id="username" placeholder="john123" class="col-12 col-md-8">
+            </div>
+            <div class="col-12">
+                <label for="password" class="col-12 col-md-4">Password</label>
+                <input type="password" name="password" id="password" class="col-12 col-md-8" required>
+            </div>
+            <div class="col-12 submit">
+                <input type="submit" value="Login" class="col-12">
+            </div>
+        </form>
+    </div>
+</div>

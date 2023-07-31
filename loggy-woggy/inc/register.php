@@ -18,7 +18,7 @@
         <div id="loggy-woggy">
             <div class="register-form blue-bg">
                 <div class="col-8 logo">
-                    <img src="../assets/images/logo-gamblingame.png" />
+                    <img src="./assets/images/logo-gamblingame.png" />
                 </div>
                 <div class="col-12">
                     <h1>Better Bets<br>Gooder Goods</h1>
@@ -53,7 +53,7 @@
                     <div class="col-12">
                         <a class="back-to-landing">&larr; Back</a>
                     </div>
-                    <form method="POST" action="./login.php" class="form-inputs row">
+                    <form method="POST" action="./inc/login.php" class="form-inputs row">
                         <div class="col-12">
                             <label for="username" class="col-12 col-md-4">Username</label>
                             <input type="text" name="username" id="username" placeholder="john123" class="col-12 col-md-8">

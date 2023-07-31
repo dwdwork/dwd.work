@@ -3,7 +3,6 @@
  * Holds user's profile info
  */
 
- require_once('../config.php');
 ?>
 <link href="./assets/css/game-simulator.css" rel="stylesheet" type="text/css">
 
