@@ -3,6 +3,27 @@
  * Set up the app's menu
  */
 
+function includeDashboard() {
+    include 'app-parts/dashboard.php';
+}
+
+function includeDashboard() {
+    include 'app-parts/dashboard.php';
+}
+
+function includeDashboard() {
+    include 'app-parts/dashboard.php';
+}
+
+function includeDashboard() {
+    include 'app-parts/dashboard.php';
+}
+
+function includeDashboard() {
+    include 'app-parts/dashboard.php';
+}
+
+
 if($_SESSION) { ?>
     
     <header id="app-header" class="app-header app-menu">

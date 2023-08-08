@@ -31,7 +31,7 @@
                     <div class="col-12">
                         <a class="back-to-landing">&larr; Back</a>
                     </div>
-                    <form method="POST" action="./register-user.php" class="form-inputs row">
+                    <form method="POST" action="./inc/register-user.php" class="form-inputs row">
                         <div class="col-12">
                             <label for="username" class="col-12 col-md-4">Username</label>
                             <input type="text" name="username" id="username" placeholder="Username" class="col-12 col-md-8">
