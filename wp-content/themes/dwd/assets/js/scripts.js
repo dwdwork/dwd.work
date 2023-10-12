@@ -2,7 +2,7 @@ import GlobalFunctions from './base/global';
 import BlockFunctions from './base/blocks';
 import HeaderFunctions from './base/header';
 import PageFunctions from './pages/old-site';
-
+import ServerFunctions from './server/server';
 
 const breakpoints = {
     sm: '( min-width: 576px )',
@@ -24,6 +24,7 @@ const globalFunctions = new GlobalFunctions();
 const blockFunctions = new BlockFunctions();
 const headerFunctions = new HeaderFunctions(breakpoints);
 const pageFunctions = new PageFunctions();
+const serverFunctions = new ServerFunctions();
 
 /** Global Functions */
 globalFunctions.convertSvgImgToSvgInline();
@@ -45,3 +46,6 @@ headerFunctions.toggleMobile();
 /** Page Specific Functions */
 pageFunctions.mobileNav();
 pageFunctions.modalFunctions();
+
+/** Server Specific Functions */
+serverFunctions.logs();
